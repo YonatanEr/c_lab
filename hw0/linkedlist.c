@@ -7,7 +7,6 @@ typedef struct ListNode {
     struct ListNode* next;
 } Node;
 
-void print_list(Node* head);
 
 Node* create_node(int data) {
     Node* new_node = (Node*) malloc (sizeof(Node));
@@ -19,8 +18,6 @@ Node* create_node(int data) {
 
 
 void free_node(Node* node) {
-    free(node->next);
-    node->next = NULL;
     free(node);
     node = NULL;
 }
@@ -118,7 +115,7 @@ void bypass_node(Node* head, int i) {
 
 void delete_index(Node** head_ptr, int i) {
     int len = list_len(*head_ptr);
-    assert(i<len && "index is out of range\n");
+    assert(i<len && "index is out of range");
     if (i == 0){
         delete_head(head_ptr);
         return;
@@ -131,13 +128,14 @@ void delete_index(Node** head_ptr, int i) {
 }
 
 
-void free_list(Node* head) {
-    Node* cur;
-    while (head != NULL) {
-        cur = head;
-        head = head->next;
-        free_node(cur);
+void free_linked_list(Node* head) {
+    print_list(head);
+    if (head != NULL) {
+        free_linked_list(head->next);
+        free(head);
+        head = NULL;
     }
+    print_list(head);
 }
 
 
@@ -155,16 +153,15 @@ void add_start(Node* head, int data) {
 
 
 void add_after(Node* head, int new_data, int cur_data) {
-    int len = list_len(head);
     Node* cur = head;
     while (cur != NULL){
         if (cur->data == cur_data){
-            push_after(cur, new_data);
+            push_after(&cur, new_data);
             return;
         }
         cur = cur->next;
     }
-    assert(NULL && "index is out of range\n");
+    assert(cur && "index is out of range");
 }
 
 
@@ -182,11 +179,12 @@ void print_index(Node* head, int data) {
     printf("%d", -1);
 }
 
-void del_index(Node* head, int i) {
-    delete_index(&head, i); 
+void del_index(Node** head_ptr, int i) {
+    delete_index(head_ptr, i); 
 }
 
-void print_list(Node* head) {
+void print_list(Node** head_ptr) {
+    Node* head = *head_ptr;
     Node* cur = head;
     printf("[");
     while (cur != NULL){
@@ -200,18 +198,23 @@ void print_list(Node* head) {
 }
 
 
-void terminate(Node* head) {
-    free_list(head);
+void terminate(Node** head_ptr) {
+    free_linked_list(*head_ptr);
+    *head_ptr = NULL;
 }
 
 
 int main () {
-    Node* head = NULL;
+    Node** head_ptr = NULL;
     for (int i=1; i<5; i++){
-        push_to_start(&head, -i);
-        push_to_end(&head, i);
-    }
-    print_list(head);
+        push_to_start(head_ptr, -i);
+        push_to_end(head_ptr, i);
+    }    
+    print_list(head_ptr);
+    printf("FREE!\n");
+    terminate(head_ptr);
+    assert(head_ptr);
+    print_list(head_ptr);
     return 0;
 }
 
