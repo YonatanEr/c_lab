@@ -196,15 +196,6 @@ void terminate(Node** head_ptr) {
 
 
 int main () {
-    int i, len=32;
-    Node* head = NULL;
-    for (i=0; i<len; i++) {
-        add_end(&head, i);
-    }
-    for (i=0; i<len; i++) {
-        printf("%d = ", i);
-        print_index(&head, i);
-    }
     return 0;
 }
 
