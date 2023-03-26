@@ -87,9 +87,9 @@ void delete_end(Node** head_ptr) {
 }
 
 
-void free_linked_list(Node* head) {
+void free_linked_list_rec(Node* head) {
     if (head != NULL) {
-        free_linked_list(head->next);
+        free_linked_list_rec(head->next);
         free(head);
         head = NULL;
     }
@@ -176,8 +176,8 @@ void print_list(Node** head_ptr) {
 }
 
 
-void terminate(Node** head_ptr) {
-    free_linked_list(*head_ptr);
+void free_linked_list(Node** head_ptr) {
+    free_linked_list_rec(*head_ptr);
     *head_ptr = NULL;
 }
 

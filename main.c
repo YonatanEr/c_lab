@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "linkedlist.h"
-#include "linkedlist.c"
 #include "IO.h"
 #include "IO.c"
 

@@ -2,7 +2,6 @@
 #include "linkedlist.c"
 
 int main () {
-    printf("TESTING\n");
     Node* head = NULL;
     add_end(&head, 1);
     print_list(&head);
@@ -13,7 +12,7 @@ int main () {
     print_index(&head, 3);
     delete_index(&head, 2);
     print_list(&head);   
-    terminate(&head);
+    free_linked_list(&head);
     return 0;
 }
 
