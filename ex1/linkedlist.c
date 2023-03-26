@@ -1,20 +1,7 @@
 #include <stdio.h>
-#include <assert.h>
 #include <stdlib.h>
-
-typedef struct ListNode {
-    int data;
-    struct ListNode* next;
-} Node;
-
-
-void add_end(Node** head_ptr, int data);
-void add_start(Node** head_ptr, int data);
-void add_after(Node** head_ptr, int new_data, int cur_data);
-void print_index(Node** head_ptr, int data);
-void delete_index(Node** head_ptr, int i);
-void print_list(Node** head_ptr);
-void terminate(Node** head_ptr);
+#include <assert.h>
+#include "linkedlist.h"
 
 
 Node* create_node(int data) {
@@ -192,10 +179,5 @@ void print_list(Node** head_ptr) {
 void terminate(Node** head_ptr) {
     free_linked_list(*head_ptr);
     *head_ptr = NULL;
-}
-
-
-int main () {
-    return 0;
 }
 
