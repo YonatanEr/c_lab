@@ -7,8 +7,7 @@
 int main(){
     int exit = 0;
     while (exit == false){
-        /*blabla*/
-
+        exit = master_io();
     }
     return 0;
 }
