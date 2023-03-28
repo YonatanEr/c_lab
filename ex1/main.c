@@ -35,26 +35,38 @@ void parse_line(char string[], char** instruction_ptr, int* num1_ptr, int* num2_
 }
 
 
+bool string_starts_with(char* string, char* prefix){
+    int i=0;
+    while (prefix[i] != '\0') {
+        if (string[i] != prefix[i]) {
+            return false;
+        }
+        i++;
+    }
+    return true;
+}
+
+
 int execute_action(Node** head_ptr, char* instruction, int num1, int num2) {
-    if (strcmp(instruction, "add_end")==0){
+    if (string_starts_with(instruction, "add_end")){
         add_end(head_ptr, num1);
     }
-    else if (strcmp(instruction, "add_start")==0){
+    else if (string_starts_with(instruction, "add_start")){
         add_start(head_ptr, num1);
     }
-    else if (strcmp(instruction, "add_after")==0){
+    else if (string_starts_with(instruction, "add_after")){
         add_after(head_ptr, num1, num2);
     }
-    else if (strcmp(instruction, "index")==0){
+    else if (string_starts_with(instruction, "index")){
         print_index(head_ptr, num1);
     }
-    else if (strcmp(instruction, "del")==0){
+    else if (string_starts_with(instruction, "del")){
         delete_index(head_ptr, num1);
     }
-    else if (strcmp(instruction, "print")==0){
+    else if (string_starts_with(instruction, "print")){
         print_list(head_ptr);
     }
-    else if (strcmp(instruction, "exit")==0){
+    else if (string_starts_with(instruction, "exit")){
         free_linked_list(head_ptr);
         return EXIT;
     }
