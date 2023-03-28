@@ -96,8 +96,6 @@ void free_linked_list_rec(Node* head) {
 }
 
 
-//   USER INTERFACE   //
-
 void add_end(Node** head_ptr, int data) {
     if (*head_ptr == NULL){
         add_start(head_ptr, data);
