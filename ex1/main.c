@@ -35,28 +35,31 @@ void parse_line(char string[], char** instruction_ptr, int* num1_ptr, int* num2_
 }
 
 
-int execute_action(Node* head, char* instruction, int num1, int num2) {
+int execute_action(Node** head_ptr, char* instruction, int num1, int num2) {
     if (strcmp(instruction, "add_end")==0){
-        add_end(&head, num1);
+        add_end(head_ptr, num1);
     }
     else if (strcmp(instruction, "add_start")==0){
-        add_start(&head, num1);
+        add_start(head_ptr, num1);
     }
     else if (strcmp(instruction, "add_after")==0){
-        add_after(&head, num1, num2);
+        add_after(head_ptr, num1, num2);
     }
     else if (strcmp(instruction, "index")==0){
-        print_index(&head, num1);
+        print_index(head_ptr, num1);
     }
     else if (strcmp(instruction, "del")==0){
-        delete_index(&head, num1);
+        delete_index(head_ptr, num1);
     }
     else if (strcmp(instruction, "print")==0){
-        print_list(&head);
+        print_list(head_ptr);
     }
     else if (strcmp(instruction, "exit")==0){
-        free_linked_list(&head);
+        free_linked_list(head_ptr);
         return EXIT;
+    }
+    else {
+        printf("Unrecognized instruction = %s\n", instruction);
     }
     return CONTINUE;
 }
@@ -64,13 +67,13 @@ int execute_action(Node* head, char* instruction, int num1, int num2) {
 
 int main() {
     Node* head = NULL;
-    char new_line[MAX_LINE_SIZE];
+    char line[MAX_LINE_SIZE];
     char* instruction;
     int num1, num2, status=CONTINUE;
     while (status == CONTINUE) {
-        fgets(new_line, MAX_LINE_SIZE, stdin);
-        parse_line(new_line, &instruction, &num1, &num2);
-        status = execute_action(head, instruction, num1, num2);
+        fgets(line, MAX_LINE_SIZE, stdin);
+        parse_line(line, &instruction, &num1, &num2);
+        status = execute_action(&head, instruction, num1, num2);
     }
     exit(0);
     return 0;
