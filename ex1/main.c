@@ -5,8 +5,6 @@
 #include "linkedlist.h"
 
 #define MAX_LINE_SIZE 100
-#define CONTINUE 0
-#define EXIT 1
 
 
 void to_lower_case(char* str) {
@@ -47,7 +45,11 @@ bool string_starts_with(char* string, char* prefix){
 }
 
 
-int execute_action(Node** head_ptr, char* instruction, int num1, int num2) {
+bool execute_action(Node** head_ptr, char* instruction, int num1, int num2) {
+    if (string_starts_with(instruction, "exit")){
+        free_linked_list(head_ptr);
+        return false;
+    }
     if (string_starts_with(instruction, "add_end")){
         add_end(head_ptr, num1);
     }
@@ -66,14 +68,7 @@ int execute_action(Node** head_ptr, char* instruction, int num1, int num2) {
     else if (string_starts_with(instruction, "print")){
         print_list(head_ptr);
     }
-    else if (string_starts_with(instruction, "exit")){
-        free_linked_list(head_ptr);
-        return EXIT;
-    }
-    else {
-        printf("Unrecognized instruction = %s\n", instruction);
-    }
-    return CONTINUE;
+    return true;
 }
 
 
@@ -81,11 +76,12 @@ int main() {
     Node* head = NULL;
     char line[MAX_LINE_SIZE];
     char* instruction;
-    int num1, num2, status=CONTINUE;
-    while (status == CONTINUE) {
+    int num1, num2;
+    bool read_line = true;
+    while (read_line) {
         fgets(line, MAX_LINE_SIZE, stdin);
         parse_line(line, &instruction, &num1, &num2);
-        status = execute_action(&head, instruction, num1, num2);
+        read_line = execute_action(&head, instruction, num1, num2);
     }
     exit(0);
     return 0;
