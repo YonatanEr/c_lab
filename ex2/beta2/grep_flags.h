@@ -7,6 +7,7 @@
 
 #include<stdbool.h>
 
+
 enum integer_flags_names {A_flag};
 enum boolean_flags_names {E_flag, b_flag, c_flag, i_flag, n_flag, v_flag, x_flag};
 enum string_flags_names {word_flag, file_flag};
@@ -18,15 +19,16 @@ typedef struct GrepFlags {
     char* string_flags[string_flags_amount];
 } Flags;
 
+
+Flags* init_flags();
+
+void free_flags(Flags* flags);
+
 int get_int_flags(Flags* flags, int ind);
 
 bool get_bool_flags(Flags* flags, int ind);
 
 char* get_str_flags(Flags* flags, int ind);
-
-Flags* init_flags();
-
-void free_flags(Flags* flags);
 
 void print_flags(Flags* flags); // DEBUG PURPOSESS TO BE DELETED
 

@@ -4,36 +4,6 @@
 #include "string.h"
 #include "grep_flags.h"
 
-void set_int_flags(Flags* flags, int ind, int val) {
-    flags->integer_flags[ind] = val;
-}
-
-void set_bool_flags(Flags* flags, int ind, bool val) {
-    flags->boolean_flags[ind] = val;
-}
-
-void set_str_flags(Flags* flags, int ind, char* val) {
-    if (val == NULL) {
-        flags->string_flags[ind] = NULL;
-        return;
-    }
-    flags->string_flags[ind] = (char*) calloc (1+strlen(val), sizeof(char));
-    assert(flags->string_flags[ind]);
-    strcpy(flags->string_flags[ind], val);
-}
-
-int get_int_flags(Flags* flags, int ind) {
-    return flags->integer_flags[ind];
-}
-
-bool get_bool_flags(Flags* flags, int ind) {
-    return flags->boolean_flags[ind];
-}
-
-char* get_str_flags(Flags* flags, int ind) {
-    return flags->string_flags[ind];
-}
-
 Flags* init_flags() {
     int i;
     Flags* flags = (Flags*) malloc (1*(sizeof(Flags)));
@@ -58,6 +28,39 @@ void free_flags(Flags* flags) {
     free(flags);
     flags = NULL;
 }
+
+
+void set_int_flags(Flags* flags, int ind, int val) {
+    flags->integer_flags[ind] = val;
+}
+
+void set_bool_flags(Flags* flags, int ind, bool val) {
+    flags->boolean_flags[ind] = val;
+}
+
+void set_str_flags(Flags* flags, int ind, char* val) {
+    if (val == NULL) {
+        flags->string_flags[ind] = NULL;
+        return;
+    }
+    flags->string_flags[ind] = (char*) calloc (1+strlen(val), sizeof(char));
+    assert(flags->string_flags[ind]);
+    strcpy(flags->string_flags[ind], val);
+}
+
+
+int get_int_flags(Flags* flags, int ind) {
+    return flags->integer_flags[ind];
+}
+
+bool get_bool_flags(Flags* flags, int ind) {
+    return flags->boolean_flags[ind];
+}
+
+char* get_str_flags(Flags* flags, int ind) {
+    return flags->string_flags[ind];
+}
+
 
 bool is_flag(char* arg){
     if (arg == NULL) {
@@ -178,17 +181,3 @@ void print_flags(Flags* flags) {
     printf("\n");
 }
 
-int main(int argc, char *argv[]) {
-    for (int i=0; i<argc; i++) {
-        printf("%s ", argv[i]);
-    }
-    Flags* flags = init_flags();
-    update_flags(flags, argc, argv);
-    print_flags(flags);
-    free_flags(flags);
-    for (int i=0; i<argc; i++) {
-        printf("%s ", argv[i]);
-    }
-    print_flags(flags);
-    return 0;
-}

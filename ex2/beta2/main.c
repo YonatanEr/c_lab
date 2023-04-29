@@ -3,15 +3,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
+#include "grep_flags.h"
 
-
-
-union un {
-    int member1;
-    char member2;
-    float member3;
-};
-  
-int main(int argc, char *argv[]){
-    return 0;
+int main(int argc, char *argv[]) {
+    Flags* flags = init_flags();
+    update_flags(flags, argc, argv);
+    print_flags(flags);
+    free_flags(flags);
 }
