@@ -9,13 +9,14 @@ union RegexLetter {
 };
 
 typedef struct RegexWord {
-   RegexLetter regex;
+   union RegexLetter regex;
    int len;
 } Regex;
 
 
-bool is_matching(char* word, char* line); // TO BE REPLACED BY 
-//bool is_matching(Regex reg, char* line); // TO BE REPLACED BY 
+bool is_matching(char* reg, char* line); 
+// TO BE REPLACED BY 
+//bool is_matching(Regex reg, char* line);
 
 
 #endif

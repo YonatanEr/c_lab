@@ -25,7 +25,7 @@ void move_file_pointer(Reader* fr, long bytes);
 
 void goto_previous_line(Reader* fr);
 
-void read_next_line(Reader* fr, char* line);
+int read_next_line(Reader* fr, char** line_ptr);
 
 Reader* get_file_reader(char* filename);
 

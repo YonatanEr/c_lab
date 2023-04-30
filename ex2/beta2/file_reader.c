@@ -38,18 +38,21 @@ void move_file_pointer(Reader* fr, long bytes) {
 }
 
 void goto_previous_line(Reader* fr){
-    move_file_pointer(fr->fp, -2);
+    move_file_pointer(fr, -2);
     while (getc(fr->fp)!='\n') {
-        move_file_pointer(fr->fp, -2);
+        move_file_pointer(fr, -2);
     }
     return;
 }
 
-void read_next_line(Reader* fr, char* line) {
+int read_next_line(Reader* fr, char** line_ptr) {
     size_t len = 0;
-    getline(&line, &len, fr->fp);
-    fr->bytes_counter = fr->bytes_counter + strlen(line) + 1;
+    if (getline(line_ptr, &len, fr->fp) == -1){
+        return -1;
+    }
+    fr->bytes_counter = fr->bytes_counter + strlen(*line_ptr) + 1;
     fr->line_counter = fr->line_counter + 1;
+    return 0;
 }
 
 Reader* get_file_reader(char* filename) {
