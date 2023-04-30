@@ -6,6 +6,8 @@
 #include "grep_flags.h"
 #include "file_reader.h"
 #include "regex_utils.h"
+#include "print_utils.h"
+
 
 
 void run_stdin_grep(Flags* flags) {
@@ -19,9 +21,10 @@ void run_file_grep(Flags* flags) {
     char* reg = get_str_flags(flags, word_flag);
     char* line = NULL;
     while (read_next_line(fr, &line) != -1) {
-        if (is_matching(reg, line)) {
-            printf("%s\n", line);
+        if (!is_matching(flags, reg, line)) {
+            continue;
         }
+        print_format(flags, line, fr);
     }
     free_file_reader(fr);
     free(line);

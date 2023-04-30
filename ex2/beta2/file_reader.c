@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <string.h>
 #include "file_reader.h"
 #include "grep_flags.h"
 
