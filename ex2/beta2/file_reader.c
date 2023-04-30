@@ -1,4 +1,6 @@
-#include "file_utils.h"
+#include <assert.h>
+#include "file_reader.h"
+#include "grep_flags.h"
 
 
 Reader* init_file_reader() {
@@ -6,14 +8,17 @@ Reader* init_file_reader() {
     assert(fr);
     fr->bytes_counter = 0;
     fr->line_counter = 0;
+    fr->is_reading = false;
     return fr;
 }
 
 void free_file_reader(Reader* fr) {
+    if (fr->is_reading) {
+        close_file(fr);
+    }
     free(fr);
     fr = NULL;
 }
-
 
 void open_file(Reader* fr, char* filename) {
     fr->fp = fopen(filename, "r");
@@ -22,8 +27,8 @@ void open_file(Reader* fr, char* filename) {
 
 void close_file(Reader* fr) {
     fclose(fr->fp);
+    fr->is_reading = false;
 }
-
 
 void move_file_pointer(Reader* fr, long bytes) {
     if (fseek(fr->fp, bytes, SEEK_CUR) != 0) {
@@ -47,3 +52,9 @@ void read_next_line(Reader* fr, char* line) {
     fr->line_counter = fr->line_counter + 1;
 }
 
+Reader* get_file_reader(char* filename) {
+    Reader* fr = init_file_reader();
+    open_file(fr, filename);
+    fr->is_reading = true;
+    return fr;
+}

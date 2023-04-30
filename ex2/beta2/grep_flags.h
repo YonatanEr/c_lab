@@ -20,8 +20,6 @@ typedef struct GrepFlags {
 } Flags;
 
 
-Flags* init_flags();
-
 void free_flags(Flags* flags);
 
 int get_int_flags(Flags* flags, int ind);
@@ -29,6 +27,8 @@ int get_int_flags(Flags* flags, int ind);
 bool get_bool_flags(Flags* flags, int ind);
 
 char* get_str_flags(Flags* flags, int ind);
+
+Flags* get_flags(int argc, char *argv[]);
 
 void print_flags(Flags* flags); // DEBUG PURPOSESS TO BE DELETED
 

@@ -4,6 +4,14 @@
 #include "string.h"
 #include "grep_flags.h"
 
+void set_int_flags(Flags* flags, int ind, int val);
+void set_bool_flags(Flags* flags, int ind, bool val);
+void set_str_flags(Flags* flags, int ind, char* val);
+
+int get_int_flags(Flags* flags, int ind);
+bool get_bool_flags(Flags* flags, int ind);
+char* get_str_flags(Flags* flags, int ind);
+
 Flags* init_flags() {
     int i;
     Flags* flags = (Flags*) malloc (1*(sizeof(Flags)));
@@ -160,6 +168,12 @@ void update_flags(Flags* flags, int argc, char *argv[]) {
         set_str_flags(flags, file_flag, argv[k]);
         argv[k] = NULL;
     }
+}
+
+Flags* get_flags(int argc, char *argv[]) {
+    Flags* flags = init_flags();
+    update_flags(flags, argc, argv);
+    return flags;
 }
 
 
