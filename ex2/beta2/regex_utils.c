@@ -4,15 +4,19 @@
 #include <assert.h>
 #include <string.h>
 
-char to_lower_case(char x) {
-    if ('A' <= x && x <= 'Z') {
-        return x - 'A' + 'a';
+char to_lower_case(char c) {
+    if ('A' <= c && c <= 'Z') {
+        return c - 'A' + 'a';
     }
-    return x;
+    return c;
 }
+
 
 bool is_matching_letter(Flags* flags, char reg_letter, char line_letter) {
     if (reg_letter=='\0') {
+        return true;
+    }
+    if (reg_letter=='.') {
         return true;
     }
     if (reg_letter==line_letter) {

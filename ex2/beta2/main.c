@@ -21,10 +21,9 @@ void run_file_grep(Flags* flags) {
     char* reg = get_str_flags(flags, word_flag);
     char* line = NULL;
     while (read_next_line(fr, &line) != -1) {
-        if (!is_matching(flags, reg, line)) {
-            continue;
+        if (is_matching(flags, reg, line)) {
+            print_format(flags, line, fr);
         }
-        print_format(flags, line, fr);
     }
     free_file_reader(fr);
     free(line);

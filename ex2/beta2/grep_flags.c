@@ -120,8 +120,9 @@ int get_bool_flag_index(char* arg){
 }
 
 void handle_int_flag(Flags* flags, char *argv[], int i, int int_flag) {
-    set_int_flags(flags, int_flag, true);
+    set_int_flags(flags, int_flag, atoi(argv[i+1]));
     argv[i] = NULL;
+    argv[i+1] = NULL;
 }
 
 void handle_bool_flag(Flags* flags, char *argv[], int i, int bool_flag) {

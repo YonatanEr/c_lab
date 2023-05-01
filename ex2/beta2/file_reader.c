@@ -32,6 +32,14 @@ void close_file(Reader* fr) {
 }
 
 void move_file_pointer(Reader* fr, long bytes) {
+    if (fseek(fr->fp, bytes, SEEK_SET) != 0) {
+        printf("Error in fseek");
+        assert(NULL);
+    }
+}
+
+
+void move_file_pointer_from_current_position(Reader* fr, long bytes) {
     if (fseek(fr->fp, bytes, SEEK_CUR) != 0) {
         printf("Error in fseek");
         assert(NULL);
@@ -39,9 +47,9 @@ void move_file_pointer(Reader* fr, long bytes) {
 }
 
 void goto_previous_line(Reader* fr){
-    move_file_pointer(fr, -2);
+    move_file_pointer_from_current_position(fr, -2);
     while (getc(fr->fp)!='\n') {
-        move_file_pointer(fr, -2);
+        move_file_pointer_from_current_position(fr, -2);
     }
     return;
 }

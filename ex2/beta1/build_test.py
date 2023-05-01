@@ -5,7 +5,7 @@ def f_print(f, line):
 
 
 def func(f, word):
-    line = 'diff <(grep "' + word + '" rand_file.txt) <(grep "' + word + '" rand_file.txt)'
+    line = 'diff <(./grep "' + word + '" rand_file.txt) <(grep "' + word + '" rand_file.txt)'
     f_print(f, line)
     f_print(f, '') 
     

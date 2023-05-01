@@ -12,7 +12,7 @@ void my_grep(char *filename, char *expression){
     size_t len = 0;
     while (getline(&line, &len, fp) != -1){    
         if (strstr(line, expression) != NULL){
-            printf("%s", line);
+            //printf("%s", line);
         }
     }
     fclose(fp);
