@@ -12,27 +12,29 @@ def func(f, word):
 
 dic = " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "
 
-f = open("my_test.sh", "w")
 
-f_print(f, "#!/bin/bash")
+def func1():
+    f = open("my_test.sh", "w")
 
-f_print(f, "")
+    f_print(f, "#!/bin/bash")
 
-func(f, "")
+    f_print(f, "")
 
-for x in dic:
-    func(f, x)
+    func(f, "")
 
-
-for i in range(2**4):
-    func(f, dic*i)
+    for x in dic:
+        func(f, x)
 
 
-for i in range(2**8):
-    for n in range(2, 8):
-        func(f, "".join(random.choices(dic, k=n)))
+    for i in range(2**4):
+        func(f, dic*i)
 
-f.close()
+
+    for i in range(2**8):
+        for n in range(2, 8):
+            func(f, "".join(random.choices(dic, k=n)))
+
+    f.close()
 
 
 

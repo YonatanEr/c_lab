@@ -2,6 +2,16 @@
     "files.associations": {
         "linkedlist.h": "c",
         "stdio.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "ios": "c",
+        "stdbool.h": "c",
+        "assert.h": "c",
+        "grep_flags.h": "c",
+        "complex": "c",
+        "string.h": "c",
+        "file_utils.h": "c",
+        "regex_utils.h": "c",
+        "file_reader.h": "c",
+        "reader_utils.h": "c"
     }
 }

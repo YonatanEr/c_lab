@@ -79,6 +79,9 @@ bool is_matching_regex(Flags* flags, char* reg, char* line) {
 
 
 bool is_matching(Flags* flags, char* reg, char* line) {
+    if (reg==NULL || line==NULL) {
+        return false;
+    }
     char* line_copy = (char*) calloc (strlen(line)+1, sizeof(char));
     assert(line_copy);
     strcpy(line_copy, line);

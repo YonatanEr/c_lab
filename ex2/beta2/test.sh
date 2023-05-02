@@ -416,3 +416,13 @@ diff <(./my_grep -E "A" -b -n -v -c < test_files/test5.txt) <(grep -E "A" -b -n 
 diff <(./my_grep -E "A" -b -n -v < test_files/test5.txt) <(grep -E "A" -b -n -v < test_files/test5.txt)
 
 diff <(./my_grep -E "abcdkf" -b -n -v < test_files/test5.txt) <(grep -E "abcdkf" -b -n -v < test_files/test5.txt)
+
+
+
+diff <(./my_grep -E "M9YO0vL9G pah1S jYUaqev NdcP3eRAMhZJTcWyHSdpayx ZKFDb6PS LwIm9g" -b < test_files/test5.txt) <(grep -E "M9YO0vL9G pah1S jYUaqev NdcP3eRAMhZJTcWyHSdpayx ZKFDb6PS LwIm9g" -b < test_files/test5.txt)
+
+diff <(./my_grep -E "M9YO0vL9G pah1S jYUaqev NdcP3eRAMhZJTcWyHSdpayx ZKFDb6PS LwIm9g" -b -n < test_files/test5.txt) <(grep -E "M9YO0vL9G pah1S jYUaqev NdcP3eRAMhZJTcWyHSdpayx ZKFDb6PS LwIm9g" -b -n < test_files/test5.txt)
+
+diff <(./my_grep -E "M9YO0vL9G pah1S jYUaqev NdcP3eRAMhZJTcWyHSdpayx ZKFDb6PS LwIm9g" -b -v < test_files/test5.txt) <(grep -E "M9YO0vL9G pah1S jYUaqev NdcP3eRAMhZJTcWyHSdpayx ZKFDb6PS LwIm9g" -b -v < test_files/test5.txt)
+
+diff <(./my_grep -E "M9YO0vL9G pah1S jYUaqev NdcP3eRAMhZJTcWyHSdpayx ZKFDb6PS LwIm9g" -b -n -v < test_files/test5.txt) <(grep -E "M9YO0vL9G pah1S jYUaqev NdcP3eRAMhZJTcWyHSdpayx ZKFDb6PS LwIm9g" -b -n -v < test_files/test5.txt)
