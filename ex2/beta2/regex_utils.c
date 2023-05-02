@@ -31,7 +31,7 @@ char to_lower_case(char c) {
 
 
 bool is_matching_letter(Flags* flags, char reg_letter, char line_letter) {
-    if (reg_letter=='\0') {
+    if (reg_letter<32 && line_letter<32) {
         return true;
     }
     if (reg_letter=='.') {
@@ -47,52 +47,46 @@ bool is_matching_letter(Flags* flags, char reg_letter, char line_letter) {
 }
 
 
-bool is_matching_rec(Flags* flags, char* reg, char* line, int i, int j) {
-    if (reg[i]=='\0') {
+bool is_matching_rec(Flags* flags, char* regex, char* line, int i, int j) {
+    if (regex[i]=='\0') {
         return true;
     }
-    if (!is_matching_letter(flags, reg[i], line[j])) {
+    if (!is_matching_letter(flags, regex[i], line[j])) {
         return false;
     }
-    if (is_matching_rec(flags, reg, line, i+1, j+1)) {
+    if (is_matching_rec(flags, regex, line, i+1, j+1)) {
         return true;
     }
-    if (is_matching_rec(flags, reg, line, i+1, j)) {
+    if (is_matching_rec(flags, regex, line, i+1, j)) {
         return true;
     }
-    if (is_matching_rec(flags, reg, line, i, j+1)) {
+    if (is_matching_rec(flags, regex, line, i, j+1)) {
         return true;
     }
     return false;
 }
 
 
-bool is_matching_regex(Flags* flags, char* reg, char* line) {
-    assert(flags);
-    //printf("reg = %s\n",reg);
-    //printf("line = %s\n",line);
-    if (reg[0] == '\0') {
-        return true;
+bool is_equal_regex_string(Flags* flags, char* regex, char* line) {
+    for (int i=0; i<strlen(line); i++) {
+        if (!is_matching_letter(flags, regex[i], line[i])) {
+            return false;
+        }
     }
-    return (strstr(line, reg) != NULL);
+    return true;
 }
 
 
-bool is_matching(Flags* flags, char* reg, char* line) {
-    if (reg==NULL || line==NULL) {
-        return false;
+bool is_matching_regex_string(Flags* flags, char* regex, char* line) {
+    if (get_bool_flags(flags, x_flag)) {
+        return is_equal_regex_string(flags, regex, line);
     }
-    char* line_copy = (char*) calloc (strlen(line)+1, sizeof(char));
-    assert(line_copy);
-    strcpy(line_copy, line);
-    char* reg_copy = (char*) calloc (strlen(reg)+1, sizeof(char));
-    assert(reg);
-    strcpy(reg_copy, reg);
-    bool res = is_matching_regex(flags, reg_copy, line_copy);
-    free(line_copy);
-    line_copy = NULL;
-    free(reg_copy);
-    line_copy = NULL;
+    return (strstr(line, regex) != NULL);
+}
+
+
+bool is_matching(Flags* flags, char* regex, char* line) {
+    bool res = is_matching_regex_string(flags, regex, line);
     if (get_bool_flags(flags, v_flag)) {
         return !res;
     }

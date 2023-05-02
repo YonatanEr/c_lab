@@ -9,7 +9,6 @@ void print_matched_line(Flags* flags, Reader* reader, char* line);
 
 void print_unmatched_line(Flags* flags, Reader* reader, char* line);
 
-void print_match_counter(Flags* flags, long matches_counter);
 
 
 #endif

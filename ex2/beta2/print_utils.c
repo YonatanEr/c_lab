@@ -7,18 +7,13 @@
 
 
 void print_line(Flags* flags, char* line, long bytes_counter, long line_counter, char c) {
-    if (get_bool_flags(flags, c_flag)) {
-        return;
-    }
     if (get_bool_flags(flags, n_flag)) {
         printf("%ld%c", line_counter, c);
     }
     if (get_bool_flags(flags, b_flag)) {
         printf("%ld%c", bytes_counter, c);
     }
-    if (!get_bool_flags(flags, c_flag)) {
-        printf("%s", line);
-    }
+    printf("%s", line);
 }
 
 
@@ -37,14 +32,4 @@ void print_matched_line(Flags* flags, Reader* reader, char* line) {
 void print_unmatched_line(Flags* flags, Reader* reader, char* line) {
     print_format(flags, reader, line, '-');
 }
-
-
-void print_match_counter(Flags* flags, long match_counter) {    
-    if (get_bool_flags(flags, c_flag)) {
-        printf("%ld\n", match_counter);
-    }
-}
-
-
-
 

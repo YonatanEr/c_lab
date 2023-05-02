@@ -9,62 +9,63 @@
 #include "regex_utils.h"
 
 
-void handle_following_lines(Flags* flags, char* regex, Reader* reader, long* match_counter_ptr);
-void handle_line(Flags* flags, char* regex, Reader* reader, long* match_counter_ptr, char* line);
-void execute_grep(Flags* flags, Regex* regexx, Reader* reader);
-
-
-void handle_following_lines(Flags* flags, char* regex, Reader* reader, long* match_counter_ptr) {
-    printf("AAA\n\n\n");
-    char* line = NULL;
-    for (int i=0; i<get_long_flags(flags, A_flag); i++) {
-        if (read_next_line(reader, &line) == -1) {
-            break;
-        }
-        if (is_matching(flags, regex, line)) {
-            handle_line(flags, regex, reader, match_counter_ptr, line);
-            break;
-        }
-        print_unmatched_line(flags, reader, line);
-        free(line);
-        line = NULL;
+void handle_matched_line(Flags* flags, Reader* reader, char* line, long* match_counter_ptr, long* last_matched_line_ptr) {
+    *match_counter_ptr = (*match_counter_ptr) + 1;
+    *last_matched_line_ptr = reader->lines_counter;
+    if (get_bool_flags(flags, c_flag)) {
+        return;
     }
-    free(line);
-    line = NULL;
-    printf("BBB\n\n\n");
-    return;
+    print_matched_line(flags, reader, line);
 }
 
-void handle_line(Flags* flags, char* regex, Reader* reader, long* match_counter_ptr, char* line) {
-    long match_counter = *match_counter_ptr;
-    if (is_matching(flags, regex, line)) {
-        match_counter++;
-        print_matched_line(flags, reader, line);
-        free(line);
-        line = NULL;
-        handle_following_lines(flags, regex, reader, &match_counter);
+
+void handle_unmatched_line(Flags* flags, Reader* reader, char* line, long last_matched_line) {
+    if (get_bool_flags(flags, c_flag)) {
+        return;
     }
-    *match_counter_ptr = match_counter;
+    long A = get_long_flags(flags, A_flag);
+    if (A == 0) {
+        return;
+    }
+    if (last_matched_line == -1) {
+        return;
+    }
+    if (reader->lines_counter-last_matched_line==A+1 && A!=0) {
+        printf("--\n");
+    }
+    if (reader->lines_counter-last_matched_line > A) {
+        return;
+    }
+    print_unmatched_line(flags, reader, line);
 }
+
 
 void execute_grep(Flags* flags, Regex* regexx, Reader* reader) {
     char* regex = get_str_flags(flags, pattern_flag);
     char* line = NULL;
     long match_counter = 0;
-    while (read_next_line(reader, &line) != -1) {
-        handle_line(flags, regex, reader, &match_counter, line);
-        printf("CCC\n");
+    long last_matched_line = -1;
+    while (read_next_line(reader, &line) != -1) {   
+        if (is_matching(flags, regex, line)) {
+            handle_matched_line(flags, reader, line, &match_counter, &last_matched_line);
+        }
+        else {
+            handle_unmatched_line(flags, reader, line, last_matched_line);
+        }
         free(line);
         line = NULL;
-        printf("DDD\n");
     }
-    print_match_counter(flags, match_counter);
+    free(line);
+    line = NULL;    
+    if (get_bool_flags(flags, c_flag)) {
+        printf("%ld\n", match_counter);
+    }
     assert(regexx);
 }
 
 
 int main(int argc, char *argv[]) {
-    Flags* flags =   get_flags(     argc, argv);
+    Flags* flags = get_flags(argc, argv);
     Regex* regex =   get_regex(     get_str_flags(flags, pattern_flag)  );
     Reader* reader = get_reader(    get_str_flags(flags, file_flag)     );
 
