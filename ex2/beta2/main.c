@@ -4,44 +4,36 @@
 #include <stdio.h>
 #include <assert.h>
 #include "grep_flags.h"
-#include "file_reader.h"
+#include "reader_utils.h"
 #include "regex_utils.h"
 #include "print_utils.h"
 
 
-
-void run_stdin_grep(Flags* flags) {
-    assert(flags);
-    return;
-}
-
-
-void run_file_grep(Flags* flags) {
-    Reader* fr = get_file_reader(get_str_flags(flags, file_flag));
-    char* reg = get_str_flags(flags, word_flag);
+void execute_grep(Flags* flags, Regex* regexx, Reader* reader){
+    char* regex = get_str_flags(flags, pattern_flag);
     char* line = NULL;
-    while (read_next_line(fr, &line) != -1) {
-        if (is_matching(flags, reg, line)) {
-            print_format(flags, line, fr);
+    long match_counter = 0;
+    while (read_next_line(reader, &line) != -1) {
+        if (is_matching(flags, regex, line)) {
+            match_counter++;
+            print_matched_line(flags, reader, line);
         }
     }
-    free_file_reader(fr);
+    print_matches_counter(flags, match_counter);
     free(line);
     line = NULL;
-    return;
+    assert(regexx);
 }
-
-
 
 int main(int argc, char *argv[]) {
     Flags* flags = get_flags(argc, argv);
-    char* input_file = get_str_flags(flags, file_flag);
-    if (input_file == NULL) {
-        run_stdin_grep(flags);
-    }
-    else {
-        run_file_grep(flags);
-    }
-    free_flags(flags);
+    Regex* regex =   get_regex(     get_str_flags(flags, pattern_flag)  );
+    Reader* reader = get_reader(    get_str_flags(flags, file_flag)     );
+
+    execute_grep(flags, regex, reader);
+
+    free_flags(flags);    
+    free_regex(regex);
+    free_reader(reader);
     return 0;
 }

@@ -16,7 +16,7 @@ Flags* init_flags() {
     int i;
     Flags* flags = (Flags*) malloc (1*(sizeof(Flags)));
     assert(flags);
-    for (i=0; i<int_flags_amount; i++) {
+    for (i=0; i<long_flags_amount; i++) {
         set_int_flags(flags, i, 0);
     }
     for (i=0; i<bool_flags_amount; i++) {
@@ -39,7 +39,7 @@ void free_flags(Flags* flags) {
 
 
 void set_int_flags(Flags* flags, int ind, int val) {
-    flags->integer_flags[ind] = val;
+    flags->long_flags[ind] = val;
 }
 
 void set_bool_flags(Flags* flags, int ind, bool val) {
@@ -57,8 +57,8 @@ void set_str_flags(Flags* flags, int ind, char* val) {
 }
 
 
-int get_int_flags(Flags* flags, int ind) {
-    return flags->integer_flags[ind];
+long get_long_flags(Flags* flags, int ind) {
+    return flags->long_flags[ind];
 }
 
 bool get_bool_flags(Flags* flags, int ind) {
@@ -127,7 +127,7 @@ void handle_int_flag(Flags* flags, char *argv[], int i, int int_flag) {
 
 void handle_bool_flag(Flags* flags, char *argv[], int i, int bool_flag) {
     if (bool_flag == E_flag) {
-        set_str_flags(flags, word_flag, argv[i+1]);
+        set_str_flags(flags, pattern_flag, argv[i+1]);
         argv[i+1] = NULL;
     }
     set_bool_flags(flags, bool_flag, true);
@@ -160,7 +160,7 @@ void update_flags(Flags* flags, int argc, char *argv[]) {
     if (!get_bool_flags(flags, E_flag)) {
         j = get_first_not_null_index(argc, argv);
         if (j!=-1) {
-            set_str_flags(flags, word_flag, argv[j]);
+            set_str_flags(flags, pattern_flag, argv[j]);
             argv[j] = NULL;
         }
     }
@@ -177,11 +177,11 @@ Flags* get_flags(int argc, char *argv[]) {
     return flags;
 }
 
+// DEBUG PURPOSESS TO BE DELETED
 
 void print_flags(Flags* flags) {
-    // DEBUG PURPOSESS TO BE DELETED
     printf("\n");
-    printf("A_flag = %d\n",get_int_flags(flags, A_flag));
+    printf("A_flag = %ld\n",get_long_flags(flags, A_flag));
     printf("\n");
     printf("E_flag = %d\n",get_bool_flags(flags, E_flag));
     printf("b_flag = %d\n",get_bool_flags(flags, b_flag));
@@ -191,7 +191,7 @@ void print_flags(Flags* flags) {
     printf("v_flag = %d\n",get_bool_flags(flags, v_flag));
     printf("x_flag = %d\n",get_bool_flags(flags, x_flag));
     printf("\n");
-    printf("word_flag = %s\n",get_str_flags(flags, word_flag));
+    printf("pattern_flag = %s\n",get_str_flags(flags, pattern_flag));
     printf("file_flag = %s\n",get_str_flags(flags, file_flag));
     printf("\n");
 }

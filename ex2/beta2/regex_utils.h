@@ -15,6 +15,11 @@ typedef struct RegexWord {
 } Regex;
 
 
+Regex* get_regex(char* pattern);
+
+void free_regex(Regex* regex);
+
+
 bool is_matching(Flags* flags, char* reg, char* line); 
 // TO BE REPLACED BY 
 //bool is_matching(Regex reg, char* line);

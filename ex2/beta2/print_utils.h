@@ -1,11 +1,13 @@
 #ifndef PRINT_UTILS_H
 #define PRINT_UTILS_H
 
-#include "file_reader.h"
+#include "reader_utils.h"
 #include "grep_flags.h"
 
-void print_line(Flags* flags, char* line, long bytes_counter, long line_counter, char c);
 
-void print_format(Flags* flags, char* line, Reader* fr);
+void print_matched_line(Flags* flags, Reader* reader, char* line);
+
+void print_matches_counter(Flags* flags, long matches_counter);
+
 
 #endif

@@ -4,6 +4,24 @@
 #include <assert.h>
 #include <string.h>
 
+
+Regex* init_regex(char* pattern) { 
+    assert(pattern);
+    Regex* regex = (Regex*) malloc (1*sizeof(Regex));
+    assert(regex);
+    return regex;
+}
+
+Regex* get_regex(char* pattern) { 
+    return init_regex(pattern);
+}
+
+void free_regex(Regex* regex) { 
+    free(regex);
+    regex = NULL;
+}
+
+
 char to_lower_case(char c) {
     if ('A' <= c && c <= 'Z') {
         return c - 'A' + 'a';
@@ -30,11 +48,11 @@ bool is_matching_letter(Flags* flags, char reg_letter, char line_letter) {
 
 
 bool is_matching_rec(Flags* flags, char* reg, char* line, int i, int j) {
-    if (!is_matching_letter(flags, reg[i], line[j])) {
-        return false;
-    }
     if (reg[i]=='\0') {
         return true;
+    }
+    if (!is_matching_letter(flags, reg[i], line[j])) {
+        return false;
     }
     if (is_matching_rec(flags, reg, line, i+1, j+1)) {
         return true;
@@ -51,6 +69,11 @@ bool is_matching_rec(Flags* flags, char* reg, char* line, int i, int j) {
 
 bool is_matching_regex(Flags* flags, char* reg, char* line) {
     assert(flags);
+    //printf("reg = %s\n",reg);
+    //printf("line = %s\n",line);
+    if (reg[0] == '\0') {
+        return true;
+    }
     return (strstr(line, reg) != NULL);
 }
 
