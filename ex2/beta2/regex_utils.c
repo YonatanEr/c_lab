@@ -68,7 +68,8 @@ bool is_matching_rec(Flags* flags, char* regex, char* line, int i, int j) {
 
 
 bool is_equal_regex_string(Flags* flags, char* regex, char* line) {
-    for (int i=0; i<strlen(line); i++) {
+    int len = strlen(line);
+    for (int i=0; i<len; i++) {
         if (!is_matching_letter(flags, regex[i], line[i])) {
             return false;
         }

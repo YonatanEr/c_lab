@@ -5,25 +5,19 @@ def f_print(f, line):
 
 
 def func(f, word):
-    for i in range(6):
-        line = 'diff <(./my_grep ' + '"' + word + '"' + ' '                 +          '  test_files/test' + str(i) + '.txt) <(grep  ' + '"' + word + '"' + ' '                              + ' test_files/test' + str(i) + '.txt)'
+    for i in ["empty_file, rand_file"]:
+        line = 'diff <(./my_grep ' + '"' + word + '"' + ' '                 +          '  test_files/' + str(i) + '.txt) <(grep  ' + '"' + word + '"' + ' '                              + ' test_files/' + str(i) + '.txt)'
         f_print(f, line)
-        #line = 'diff <(./my_grep ' + '"' + word + '"' + ' -i '              +          '  test_files/test' + str(i) + '.txt) <(grep  ' + '"' + word + '"' + ' -i '                           + '  test_files/test' + str(i) + '.txt)'
-        #f_print(f, line)
-        line = 'diff <(./my_grep ' + '"' + word + '"' + ' -c '              +          '  test_files/test' + str(i) + '.txt) <(grep  ' + '"' + word + '"' + ' -c '                           + '  test_files/test' + str(i) + '.txt)'
+        line = 'diff <(./my_grep ' + '"' + word + '"' + ' -c '              +          '  test_files/' + str(i) + '.txt) <(grep  ' + '"' + word + '"' + ' -c '                           + '  test_files/' + str(i) + '.txt)'
         f_print(f, line)
-        line = 'diff <(./my_grep ' + '"' + word + '"' + ' -n -b '           +          '  test_files/test' + str(i) + '.txt) <(grep  ' + '"' + word + '"' + ' -n -b '                        + '  test_files/test' + str(i) + '.txt)'
+        line = 'diff <(./my_grep ' + '"' + word + '"' + ' -n -b '           +          '  test_files/' + str(i) + '.txt) <(grep  ' + '"' + word + '"' + ' -n -b '                        + '  test_files/' + str(i) + '.txt)'
         f_print(f, line)
-        line = 'diff <(./my_grep ' + '"' + word + '"' + ' -n -b -v '        +          '  test_files/test' + str(i) + '.txt) <(grep  ' + '"' + word + '"' + ' -n -b -v '                     + '  test_files/test' + str(i) + '.txt)'
+        line = 'diff <(./my_grep ' + '"' + word + '"' + ' -n -b -v '        +          '  test_files/' + str(i) + '.txt) <(grep  ' + '"' + word + '"' + ' -n -b -v '                     + '  test_files/' + str(i) + '.txt)'
         f_print(f, line)
-        line = 'diff <(./my_grep ' + '"' + word + '"' + ' -n -b -v -c '     +          '  test_files/test' + str(i) + '.txt) <(grep  ' + '"' + word + '"' + ' -n -b -v -c '                  + '  test_files/test' + str(i) + '.txt)'
+        line = 'diff <(./my_grep ' + '"' + word + '"' + ' -n -b -v -c '     +          '  test_files/' + str(i) + '.txt) <(grep  ' + '"' + word + '"' + ' -n -b -v -c '                  + '  test_files/' + str(i) + '.txt)'
         f_print(f, line)
-        line = 'diff <(./my_grep ' + '"' + word + '"' + ' -n -b -v -A '     + str(i) + '  test_files/test' + str(i) + '.txt) <(grep  ' + '"' + word + '"' + ' -n -b -v -A '      + str(i)    + '  test_files/test' + str(i) + '.txt)'
+        line = 'diff <(./my_grep ' + '"' + word + '"' + ' -n -b -v -A '     + str(i) + '  test_files/' + str(i) + '.txt) <(grep  ' + '"' + word + '"' + ' -n -b -v -A '      + str(i)    + '  test_files/' + str(i) + '.txt)'
         f_print(f, line)
-        #line = 'diff <(./my_grep ' + '"' + word + '"' + ' -i -n -b -v -A '     + str(i) + '  test_files/test' + str(i) + '.txt) <(grep  ' + '"' + word + '"' + ' -i -n -b -v -A '      + str(i)    + '  test_files/test' + str(i) + '.txt)'
-        #f_print(f, line)
-        #line = 'diff <(./my_grep ' + '"' + word + '"' + ' -i -c -n -b -v -A '  + str(i) + '  test_files/test' + str(i) + '.txt) <(grep  ' + '"' + word + '"' + ' -i -c -n -b -v -A '   + str(i)    + '  test_files/test' + str(i) + '.txt)'
-        #f_print(f, line)
     
 dic = " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "
 
