@@ -4,20 +4,17 @@
 #include "string.h"
 #include "grep_flags.h"
 
-void set_int_flags(Flags* flags, int ind, int val);
+void set_long_flags(Flags* flags, int ind, int val);
 void set_bool_flags(Flags* flags, int ind, bool val);
 void set_str_flags(Flags* flags, int ind, char* val);
 
-int get_int_flags(Flags* flags, int ind);
-bool get_bool_flags(Flags* flags, int ind);
-char* get_str_flags(Flags* flags, int ind);
 
 Flags* init_flags() {
     int i;
     Flags* flags = (Flags*) malloc (1*(sizeof(Flags)));
     assert(flags);
     for (i=0; i<long_flags_amount; i++) {
-        set_int_flags(flags, i, 0);
+        set_long_flags(flags, i, 0);
     }
     for (i=0; i<bool_flags_amount; i++) {
         set_bool_flags(flags, i, false);
@@ -38,7 +35,7 @@ void free_flags(Flags* flags) {
 }
 
 
-void set_int_flags(Flags* flags, int ind, int val) {
+void set_long_flags(Flags* flags, int ind, int val) {
     flags->long_flags[ind] = val;
 }
 
@@ -83,7 +80,7 @@ bool is_flag(char* arg){
     return true;
 }
 
-int get_int_flag_index(char* arg){
+int get_long_flag_index(char* arg){
     if (!is_flag(arg)){
         return -1;
     }
@@ -119,8 +116,8 @@ int get_bool_flag_index(char* arg){
     }
 }
 
-void handle_int_flag(Flags* flags, char *argv[], int i, int int_flag) {
-    set_int_flags(flags, int_flag, atoi(argv[i+1]));
+void handle_long_flag(Flags* flags, char *argv[], int i, int long_flag) {
+    set_long_flags(flags, long_flag, atoi(argv[i+1]));
     argv[i] = NULL;
     argv[i+1] = NULL;
 }
@@ -146,9 +143,9 @@ int get_first_not_null_index(int argc, char *argv[]) {
 void update_flags(Flags* flags, int argc, char *argv[]) {
     int int_flag, bool_flag, i, j, k;
     for (i=0; i<argc; i++) {
-        int_flag = get_int_flag_index(argv[i]);
+        int_flag = get_long_flag_index(argv[i]);
         if (int_flag != -1) {
-            handle_int_flag(flags, argv, i, int_flag);
+            handle_long_flag(flags, argv, i, int_flag);
             continue;
         }
         bool_flag = get_bool_flag_index(argv[i]);
