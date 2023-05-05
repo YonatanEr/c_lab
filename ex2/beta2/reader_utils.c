@@ -52,32 +52,3 @@ int read_next_line(Reader* fr, char** line_ptr) {
 }
 
 
-
-// DEBUG PUPROSES TO BE DELETED - START
-
-
-void move_file_pointer(Reader* fr, long bytes) {
-    if (fseek(fr->file_pointer, bytes, SEEK_SET) != 0) {
-        printf("Error in fseek");
-        assert(NULL);
-    }
-}
-
-
-void move_file_pointer_from_current_position(Reader* fr, long bytes) {
-    if (fseek(fr->file_pointer, bytes, SEEK_CUR) != 0) {
-        printf("Error in fseek");
-        assert(NULL);
-    }
-}
-
-void goto_previous_line(Reader* fr){
-    move_file_pointer_from_current_position(fr, -2);
-    while (getc(fr->file_pointer)!='\n') {
-        move_file_pointer_from_current_position(fr, -2);
-    }
-    return;
-}
-
-
-// DEBUG PUPROSES TO BE DELETED - END

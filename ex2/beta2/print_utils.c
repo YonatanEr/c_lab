@@ -14,6 +14,9 @@ void print_line(Flags* flags, char* line, long bytes_counter, long line_counter,
         printf("%ld%c", bytes_counter, c);
     }
     printf("%s", line);
+    if (line[strlen(line+1)] != '\n') {
+        printf("\n");
+    }
 }
 
 

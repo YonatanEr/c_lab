@@ -7,14 +7,14 @@
 void set_long_flags(Flags* flags, int ind, int val);
 void set_bool_flags(Flags* flags, int ind, bool val);
 void set_str_flags(Flags* flags, int ind, char* val);
-
+char* get_regular_pattern(char* arg);
 
 Flags* init_flags() {
     int i;
     Flags* flags = (Flags*) malloc (1*(sizeof(Flags)));
     assert(flags);
     for (i=0; i<long_flags_amount; i++) {
-        set_long_flags(flags, i, 0);
+        set_long_flags(flags, i, -1);
     }
     for (i=0; i<bool_flags_amount; i++) {
         set_bool_flags(flags, i, false);
@@ -124,7 +124,7 @@ void handle_long_flag(Flags* flags, char *argv[], int i, int long_flag) {
 
 void handle_bool_flag(Flags* flags, char *argv[], int i, int bool_flag) {
     if (bool_flag == E_flag) {
-        set_str_flags(flags, pattern_flag, argv[i+1]);
+        set_str_flags(flags, pattern_flag, get_regular_pattern(argv[i+1]));
         argv[i+1] = NULL;
     }
     set_bool_flags(flags, bool_flag, true);
@@ -139,6 +139,18 @@ int get_first_not_null_index(int argc, char *argv[]) {
     }
     return -1;
 }
+
+
+char* get_regular_pattern(char* arg) {
+    int len = strlen(arg);
+    char* pattern = (char*) calloc (len+1, sizeof(char));
+    assert(pattern);
+    for (int i=0; i<len; i++) {
+        pattern[i] = arg[i];
+    }
+    return pattern;
+}
+
 
 void update_flags(Flags* flags, int argc, char *argv[]) {
     int int_flag, bool_flag, i, j, k;
@@ -192,4 +204,5 @@ void print_flags(Flags* flags) {
     printf("file_flag = %s\n",get_str_flags(flags, file_flag));
     printf("\n");
 }
+
 

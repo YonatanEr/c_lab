@@ -30,8 +30,6 @@ char* get_str_flags(Flags* flags, int ind);
 
 Flags* get_flags(int argc, char *argv[]);
 
-// DEBUG PURPOSESS TO BE DELETED
-
 void print_flags(Flags* flags); 
 
 

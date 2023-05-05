@@ -1,580 +1,312 @@
 #!/bin/bash
 
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -A 0  test_files/empty_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -A 0  test_files/empty_file.txt)
 
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -v -A 1  test_files/empty_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep ""   -x -b -i    test_files/empty_file.txt) <(grep  ""  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b     -v -A 2  test_files/empty_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b     -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep "" -c   -x -b -i    test_files/empty_file.txt) <(grep  "" -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -A 0  test_files/rand_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n     -x -b -i    test_files/empty_file.txt) <(grep  "" -n     -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -v -A 1  test_files/rand_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  "" -n   -v   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b     -v -A 2  test_files/rand_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b     -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  "" -n   -v -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -A 0  test_files/empty_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep "" -n   -v -A 0  -x -b -i    test_files/empty_file.txt) <(grep  "" -n   -v -A 0  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -v -A 1  test_files/empty_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep ""   -x -b -i    test_files/empty_file.txt) <(grep  ""  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b     -v -A 2  test_files/empty_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b     -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep "" -c   -x -b -i    test_files/empty_file.txt) <(grep  "" -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -A 0  test_files/rand_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n     -x -b -i    test_files/empty_file.txt) <(grep  "" -n     -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -v -A 1  test_files/rand_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  "" -n   -v   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b     -v -A 2  test_files/rand_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b     -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  "" -n   -v -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -A 0  test_files/empty_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep "" -n   -v -A 1  -x -b -i    test_files/empty_file.txt) <(grep  "" -n   -v -A 1  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -v -A 1  test_files/empty_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep ""   -x -b -i    test_files/empty_file.txt) <(grep  ""  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b     -v -A 2  test_files/empty_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b     -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep "" -c   -x -b -i    test_files/empty_file.txt) <(grep  "" -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -A 0  test_files/rand_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n     -x -b -i    test_files/empty_file.txt) <(grep  "" -n     -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -v -A 1  test_files/rand_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b     -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  "" -n   -v   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b     -v -A 2  test_files/rand_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b     -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  "" -n   -v -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "9"   -n -b     -A 0  test_files/empty_file.txt) <(grep -E   "9"   -n -b     -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep "" -n   -v -A 2  -x -b -i    test_files/empty_file.txt) <(grep  "" -n   -v -A 2  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "9"   -n -b     -v -A 1  test_files/empty_file.txt) <(grep -E   "9"   -n -b     -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep ""   -x -b -i    test_files/rand_file.txt) <(grep  ""  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "9" -c -n -b     -v -A 2  test_files/empty_file.txt) <(grep -E   "9" -c -n -b     -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep "" -c   -x -b -i    test_files/rand_file.txt) <(grep  "" -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "9"   -n -b     -A 0  test_files/rand_file.txt) <(grep -E   "9"   -n -b     -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n     -x -b -i    test_files/rand_file.txt) <(grep  "" -n     -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "9"   -n -b     -v -A 1  test_files/rand_file.txt) <(grep -E   "9"   -n -b     -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  "" -n   -v   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "9" -c -n -b     -v -A 2  test_files/rand_file.txt) <(grep -E   "9" -c -n -b     -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  "" -n   -v -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "MU"   -n -b     -A 0  test_files/empty_file.txt) <(grep -E   "MU"   -n -b     -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep "" -n   -v -A 3  -x -b -i    test_files/rand_file.txt) <(grep  "" -n   -v -A 3  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "MU"   -n -b     -v -A 1  test_files/empty_file.txt) <(grep -E   "MU"   -n -b     -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep ""   -x -b -i    test_files/rand_file.txt) <(grep  ""  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "MU" -c -n -b     -v -A 2  test_files/empty_file.txt) <(grep -E   "MU" -c -n -b     -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep "" -c   -x -b -i    test_files/rand_file.txt) <(grep  "" -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "MU"   -n -b     -A 0  test_files/rand_file.txt) <(grep -E   "MU"   -n -b     -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n     -x -b -i    test_files/rand_file.txt) <(grep  "" -n     -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "MU"   -n -b     -v -A 1  test_files/rand_file.txt) <(grep -E   "MU"   -n -b     -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  "" -n   -v   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "MU" -c -n -b     -v -A 2  test_files/rand_file.txt) <(grep -E   "MU" -c -n -b     -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  "" -n   -v -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JDy"   -n -b     -A 0  test_files/empty_file.txt) <(grep -E   "JDy"   -n -b     -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep "" -n   -v -A 4  -x -b -i    test_files/rand_file.txt) <(grep  "" -n   -v -A 4  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JDy"   -n -b     -v -A 1  test_files/empty_file.txt) <(grep -E   "JDy"   -n -b     -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep ""   -x -b -i    test_files/rand_file.txt) <(grep  ""  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JDy" -c -n -b     -v -A 2  test_files/empty_file.txt) <(grep -E   "JDy" -c -n -b     -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep "" -c   -x -b -i    test_files/rand_file.txt) <(grep  "" -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JDy"   -n -b     -A 0  test_files/rand_file.txt) <(grep -E   "JDy"   -n -b     -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n     -x -b -i    test_files/rand_file.txt) <(grep  "" -n     -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JDy"   -n -b     -v -A 1  test_files/rand_file.txt) <(grep -E   "JDy"   -n -b     -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  "" -n   -v   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JDy" -c -n -b     -v -A 2  test_files/rand_file.txt) <(grep -E   "JDy" -c -n -b     -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  "" -n   -v -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JyB4"   -n -b     -A 0  test_files/empty_file.txt) <(grep -E   "JyB4"   -n -b     -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep "" -n   -v -A 5  -x -b -i    test_files/rand_file.txt) <(grep  "" -n   -v -A 5  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JyB4"   -n -b     -v -A 1  test_files/empty_file.txt) <(grep -E   "JyB4"   -n -b     -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep ""   -x -b -i    test_files/empty_file.txt) <(grep  ""  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JyB4" -c -n -b     -v -A 2  test_files/empty_file.txt) <(grep -E   "JyB4" -c -n -b     -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep "" -c   -x -b -i    test_files/empty_file.txt) <(grep  "" -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JyB4"   -n -b     -A 0  test_files/rand_file.txt) <(grep -E   "JyB4"   -n -b     -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n     -x -b -i    test_files/empty_file.txt) <(grep  "" -n     -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JyB4"   -n -b     -v -A 1  test_files/rand_file.txt) <(grep -E   "JyB4"   -n -b     -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  "" -n   -v   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JyB4" -c -n -b     -v -A 2  test_files/rand_file.txt) <(grep -E   "JyB4" -c -n -b     -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  "" -n   -v -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -A 0  test_files/empty_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep "" -n   -v -A 0  -x -b -i    test_files/empty_file.txt) <(grep  "" -n   -v -A 0  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -v -A 1  test_files/empty_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep ""   -x -b -i    test_files/empty_file.txt) <(grep  ""  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b  -x -v -A 2  test_files/empty_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b  -x -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep "" -c   -x -b -i    test_files/empty_file.txt) <(grep  "" -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -A 0  test_files/rand_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n     -x -b -i    test_files/empty_file.txt) <(grep  "" -n     -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -v -A 1  test_files/rand_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  "" -n   -v   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b  -x -v -A 2  test_files/rand_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b  -x -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  "" -n   -v -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -A 0  test_files/empty_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep "" -n   -v -A 1  -x -b -i    test_files/empty_file.txt) <(grep  "" -n   -v -A 1  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -v -A 1  test_files/empty_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep ""   -x -b -i    test_files/empty_file.txt) <(grep  ""  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b  -x -v -A 2  test_files/empty_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b  -x -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep "" -c   -x -b -i    test_files/empty_file.txt) <(grep  "" -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -A 0  test_files/rand_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n     -x -b -i    test_files/empty_file.txt) <(grep  "" -n     -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -v -A 1  test_files/rand_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  "" -n   -v   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b  -x -v -A 2  test_files/rand_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b  -x -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  "" -n   -v -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -A 0  test_files/empty_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep "" -n   -v -A 2  -x -b -i    test_files/empty_file.txt) <(grep  "" -n   -v -A 2  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -v -A 1  test_files/empty_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep ""   -x -b -i    test_files/rand_file.txt) <(grep  ""  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b  -x -v -A 2  test_files/empty_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b  -x -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep "" -c   -x -b -i    test_files/rand_file.txt) <(grep  "" -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -A 0  test_files/rand_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n     -x -b -i    test_files/rand_file.txt) <(grep  "" -n     -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -v -A 1  test_files/rand_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"   -n -b  -x -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  "" -n   -v   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b  -x -v -A 2  test_files/rand_file.txt) <(grep -E   "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" -c -n -b  -x -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  "" -n   -v -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "9"   -n -b  -x -A 0  test_files/empty_file.txt) <(grep -E   "9"   -n -b  -x -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep "" -n   -v -A 3  -x -b -i    test_files/rand_file.txt) <(grep  "" -n   -v -A 3  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "9"   -n -b  -x -v -A 1  test_files/empty_file.txt) <(grep -E   "9"   -n -b  -x -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep ""   -x -b -i    test_files/rand_file.txt) <(grep  ""  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "9" -c -n -b  -x -v -A 2  test_files/empty_file.txt) <(grep -E   "9" -c -n -b  -x -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep "" -c   -x -b -i    test_files/rand_file.txt) <(grep  "" -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "9"   -n -b  -x -A 0  test_files/rand_file.txt) <(grep -E   "9"   -n -b  -x -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n     -x -b -i    test_files/rand_file.txt) <(grep  "" -n     -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "9"   -n -b  -x -v -A 1  test_files/rand_file.txt) <(grep -E   "9"   -n -b  -x -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  "" -n   -v   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "9" -c -n -b  -x -v -A 2  test_files/rand_file.txt) <(grep -E   "9" -c -n -b  -x -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  "" -n   -v -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "MU"   -n -b  -x -A 0  test_files/empty_file.txt) <(grep -E   "MU"   -n -b  -x -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep "" -n   -v -A 4  -x -b -i    test_files/rand_file.txt) <(grep  "" -n   -v -A 4  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "MU"   -n -b  -x -v -A 1  test_files/empty_file.txt) <(grep -E   "MU"   -n -b  -x -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep ""   -x -b -i    test_files/rand_file.txt) <(grep  ""  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "MU" -c -n -b  -x -v -A 2  test_files/empty_file.txt) <(grep -E   "MU" -c -n -b  -x -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep "" -c   -x -b -i    test_files/rand_file.txt) <(grep  "" -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "MU"   -n -b  -x -A 0  test_files/rand_file.txt) <(grep -E   "MU"   -n -b  -x -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n     -x -b -i    test_files/rand_file.txt) <(grep  "" -n     -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "MU"   -n -b  -x -v -A 1  test_files/rand_file.txt) <(grep -E   "MU"   -n -b  -x -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  "" -n   -v   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "MU" -c -n -b  -x -v -A 2  test_files/rand_file.txt) <(grep -E   "MU" -c -n -b  -x -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep "" -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  "" -n   -v -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JDy"   -n -b  -x -A 0  test_files/empty_file.txt) <(grep -E   "JDy"   -n -b  -x -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep "" -n   -v -A 5  -x -b -i    test_files/rand_file.txt) <(grep  "" -n   -v -A 5  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JDy"   -n -b  -x -v -A 1  test_files/empty_file.txt) <(grep -E   "JDy"   -n -b  -x -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JDy" -c -n -b  -x -v -A 2  test_files/empty_file.txt) <(grep -E   "JDy" -c -n -b  -x -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JDy"   -n -b  -x -A 0  test_files/rand_file.txt) <(grep -E   "JDy"   -n -b  -x -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JDy"   -n -b  -x -v -A 1  test_files/rand_file.txt) <(grep -E   "JDy"   -n -b  -x -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JDy" -c -n -b  -x -v -A 2  test_files/rand_file.txt) <(grep -E   "JDy" -c -n -b  -x -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JyB4"   -n -b  -x -A 0  test_files/empty_file.txt) <(grep -E   "JyB4"   -n -b  -x -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 0  -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 0  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JyB4"   -n -b  -x -v -A 1  test_files/empty_file.txt) <(grep -E   "JyB4"   -n -b  -x -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JyB4" -c -n -b  -x -v -A 2  test_files/empty_file.txt) <(grep -E   "JyB4" -c -n -b  -x -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JyB4"   -n -b  -x -A 0  test_files/rand_file.txt) <(grep -E   "JyB4"   -n -b  -x -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JyB4"   -n -b  -x -v -A 1  test_files/rand_file.txt) <(grep -E   "JyB4"   -n -b  -x -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JyB4" -c -n -b  -x -v -A 2  test_files/rand_file.txt) <(grep -E   "JyB4" -c -n -b  -x -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "[1-9].."   -n -b  -x -A 0  test_files/empty_file.txt) <(grep -E   "[1-9].."   -n -b  -x -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 1  -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 1  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "[1-9].."   -n -b  -x -v -A 1  test_files/empty_file.txt) <(grep -E   "[1-9].."   -n -b  -x -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "[1-9].." -c -n -b  -x -v -A 2  test_files/empty_file.txt) <(grep -E   "[1-9].." -c -n -b  -x -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "[1-9].."   -n -b  -x -A 0  test_files/rand_file.txt) <(grep -E   "[1-9].."   -n -b  -x -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "[1-9].."   -n -b  -x -v -A 1  test_files/rand_file.txt) <(grep -E   "[1-9].."   -n -b  -x -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "[1-9].." -c -n -b  -x -v -A 2  test_files/rand_file.txt) <(grep -E   "[1-9].." -c -n -b  -x -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "(1|9).."   -n -b  -x -A 0  test_files/empty_file.txt) <(grep -E   "(1|9).."   -n -b  -x -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 2  -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 2  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "(1|9).."   -n -b  -x -v -A 1  test_files/empty_file.txt) <(grep -E   "(1|9).."   -n -b  -x -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "(1|9).." -c -n -b  -x -v -A 2  test_files/empty_file.txt) <(grep -E   "(1|9).." -c -n -b  -x -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "(1|9).."   -n -b  -x -A 0  test_files/rand_file.txt) <(grep -E   "(1|9).."   -n -b  -x -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "(1|9).."   -n -b  -x -v -A 1  test_files/rand_file.txt) <(grep -E   "(1|9).."   -n -b  -x -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "(1|9).." -c -n -b  -x -v -A 2  test_files/rand_file.txt) <(grep -E   "(1|9).." -c -n -b  -x -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JDy"   -n -b  -x -A 0  test_files/empty_file.txt) <(grep -E   "JDy"   -n -b  -x -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 3  -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 3  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JDy"   -n -b  -x -v -A 1  test_files/empty_file.txt) <(grep -E   "JDy"   -n -b  -x -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JDy" -c -n -b  -x -v -A 2  test_files/empty_file.txt) <(grep -E   "JDy" -c -n -b  -x -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JDy"   -n -b  -x -A 0  test_files/rand_file.txt) <(grep -E   "JDy"   -n -b  -x -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JDy"   -n -b  -x -v -A 1  test_files/rand_file.txt) <(grep -E   "JDy"   -n -b  -x -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JDy" -c -n -b  -x -v -A 2  test_files/rand_file.txt) <(grep -E   "JDy" -c -n -b  -x -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JyB4"   -n -b  -x -A 0  test_files/empty_file.txt) <(grep -E   "JyB4"   -n -b  -x -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 4  -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 4  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JyB4"   -n -b  -x -v -A 1  test_files/empty_file.txt) <(grep -E   "JyB4"   -n -b  -x -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JyB4" -c -n -b  -x -v -A 2  test_files/empty_file.txt) <(grep -E   "JyB4" -c -n -b  -x -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JyB4"   -n -b  -x -A 0  test_files/rand_file.txt) <(grep -E   "JyB4"   -n -b  -x -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JyB4"   -n -b  -x -v -A 1  test_files/rand_file.txt) <(grep -E   "JyB4"   -n -b  -x -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JyB4" -c -n -b  -x -v -A 2  test_files/rand_file.txt) <(grep -E   "JyB4" -c -n -b  -x -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "[1-9].."   -n -b   -A 0  test_files/empty_file.txt) <(grep -E   "[1-9].."   -n -b   -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 5  -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 5  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "[1-9].."   -n -b   -v -A 1  test_files/empty_file.txt) <(grep -E   "[1-9].."   -n -b   -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "[1-9].." -c -n -b   -v -A 2  test_files/empty_file.txt) <(grep -E   "[1-9].." -c -n -b   -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "[1-9].."   -n -b   -A 0  test_files/rand_file.txt) <(grep -E   "[1-9].."   -n -b   -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "[1-9].."   -n -b   -v -A 1  test_files/rand_file.txt) <(grep -E   "[1-9].."   -n -b   -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "[1-9].." -c -n -b   -v -A 2  test_files/rand_file.txt) <(grep -E   "[1-9].." -c -n -b   -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "(1|9).."   -n -b   -A 0  test_files/empty_file.txt) <(grep -E   "(1|9).."   -n -b   -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 0  -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 0  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "(1|9).."   -n -b   -v -A 1  test_files/empty_file.txt) <(grep -E   "(1|9).."   -n -b   -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "(1|9).." -c -n -b   -v -A 2  test_files/empty_file.txt) <(grep -E   "(1|9).." -c -n -b   -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JDy"   -n -b   -v -A 1  test_files/empty_file.txt) <(grep -E   "JDy"   -n -b   -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JDy"   -n -b   -A 0  test_files/empty_file.txt) <(grep -E   "JDy"   -n -b   -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JDy" -c -n -b   -v -A 2  test_files/empty_file.txt) <(grep -E   "JDy" -c -n -b   -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JDy"   -n -b   -A 0  test_files/rand_file.txt) <(grep -E   "JDy"   -n -b   -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 1  -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 1  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JDy"   -n -b   -v -A 1  test_files/rand_file.txt) <(grep -E   "JDy"   -n -b   -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JDy" -c -n -b   -v -A 2  test_files/rand_file.txt) <(grep -E   "JDy" -c -n -b   -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JyB4"   -n -b   -A 0  test_files/empty_file.txt) <(grep -E   "JyB4"   -n -b   -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JyB4"   -n -b   -v -A 1  test_files/empty_file.txt) <(grep -E   "JyB4"   -n -b   -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JyB4" -c -n -b   -v -A 2  test_files/empty_file.txt) <(grep -E   "JyB4" -c -n -b   -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JyB4"   -n -b   -A 0  test_files/rand_file.txt) <(grep -E   "JyB4"   -n -b   -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 2  -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 2  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E  "JyB4"   -n -b   -v -A 1  test_files/rand_file.txt) <(grep -E   "JyB4"   -n -b   -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "JyB4" -c -n -b   -v -A 2  test_files/rand_file.txt) <(grep -E   "JyB4" -c -n -b   -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "(1|9).."   -n -b   -A 0  test_files/rand_file.txt) <(grep -E   "(1|9).."   -n -b   -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "(1|9).."   -n -b   -v -A 1  test_files/rand_file.txt) <(grep -E   "(1|9).."   -n -b   -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E  "(1|9).." -c -n -b   -v -A 2  test_files/rand_file.txt) <(grep -E   "(1|9).." -c -n -b   -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 3  -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 3  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E "[1-9].."   -n -b   -A 0  test_files/rand_file.txt) <(grep -E  "[1-9].."   -n -b   -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E "[1-9].."   -n -b   -v -A 1  test_files/rand_file.txt) <(grep -E  "[1-9].."   -n -b   -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E "[1-9].." -c -n -b   -v -A 2  test_files/rand_file.txt) <(grep -E  "[1-9].." -c -n -b   -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E "(|a)(b|9).."   -n -b   -A 0  test_files/empty_file.txt) <(grep -E  "(|a)(b|9).."   -n -b   -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E "(|a)(b|9).."   -n -b   -v -A 1  test_files/empty_file.txt) <(grep -E  "(|a)(b|9).."   -n -b   -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E "(|a)(b|9).." -c -n -b   -v -A 2  test_files/empty_file.txt) <(grep -E  "(|a)(b|9).." -c -n -b   -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 4  -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 4  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E "(|a)(b|9).."   -n -b   -A 0  test_files/rand_file.txt) <(grep -E  "(|a)(b|9).."   -n -b   -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E "(|a)(b|9).."   -n -b   -v -A 1  test_files/rand_file.txt) <(grep -E  "(|a)(b|9).."   -n -b   -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E "(|a)(b|9).." -c -n -b   -v -A 2  test_files/rand_file.txt) <(grep -E  "(|a)(b|9).." -c -n -b   -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E "JDy"   -n -b   -A 0  test_files/empty_file.txt) <(grep -E  "JDy"   -n -b   -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E "JDy"   -n -b   -v -A 1  test_files/empty_file.txt) <(grep -E  "JDy"   -n -b   -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E "JDy" -c -n -b   -v -A 2  test_files/empty_file.txt) <(grep -E  "JDy" -c -n -b   -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 5  -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 5  -x -b -i    test_files/rand_file.txt)
+diff <(./my_grep -E "JDy"   -n -b   -A 0  test_files/rand_file.txt) <(grep -E  "JDy"   -n -b   -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E "JDy"   -n -b   -v -A 1  test_files/rand_file.txt) <(grep -E  "JDy"   -n -b   -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E "JDy" -c -n -b   -v -A 2  test_files/rand_file.txt) <(grep -E  "JDy" -c -n -b   -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E "(a|bc).."   -n -b   -A 0  test_files/empty_file.txt) <(grep -E  "(a|bc).."   -n -b   -A 0  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E "(a|bc).."   -n -b   -v -A 1  test_files/empty_file.txt) <(grep -E  "(a|bc).."   -n -b   -v -A 1  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E "(a|bc).." -c -n -b   -v -A 2  test_files/empty_file.txt) <(grep -E  "(a|bc).." -c -n -b   -v -A 2  test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 0  -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 0  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E "(a|bc).."   -n -b   -A 0  test_files/rand_file.txt) <(grep -E  "(a|bc).."   -n -b   -A 0  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "  -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E "(a|bc).."   -n -b   -v -A 1  test_files/rand_file.txt) <(grep -E  "(a|bc).."   -n -b   -v -A 1  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/empty_file.txt)
+diff <(./my_grep -E "(a|bc).." -c -n -b   -v -A 2  test_files/rand_file.txt) <(grep -E  "(a|bc).." -c -n -b   -v -A 2  test_files/rand_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/empty_file.txt)
 
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 1  -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 1  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 2  -x -b -i    test_files/empty_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 2  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 3  -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 3  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 4  -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 4  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  "  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n     -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 5  -x -b -i    test_files/rand_file.txt) <(grep  " abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ   abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ  " -n   -v -A 5  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "I"   -x -b -i    test_files/empty_file.txt) <(grep  "I"  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "I" -c   -x -b -i    test_files/empty_file.txt) <(grep  "I" -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "I" -n     -x -b -i    test_files/empty_file.txt) <(grep  "I" -n     -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "I" -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  "I" -n   -v   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "I" -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  "I" -n   -v -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "I" -n   -v -A 0  -x -b -i    test_files/empty_file.txt) <(grep  "I" -n   -v -A 0  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "I"   -x -b -i    test_files/empty_file.txt) <(grep  "I"  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "I" -c   -x -b -i    test_files/empty_file.txt) <(grep  "I" -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "I" -n     -x -b -i    test_files/empty_file.txt) <(grep  "I" -n     -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "I" -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  "I" -n   -v   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "I" -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  "I" -n   -v -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "I" -n   -v -A 1  -x -b -i    test_files/empty_file.txt) <(grep  "I" -n   -v -A 1  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "I"   -x -b -i    test_files/empty_file.txt) <(grep  "I"  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "I" -c   -x -b -i    test_files/empty_file.txt) <(grep  "I" -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "I" -n     -x -b -i    test_files/empty_file.txt) <(grep  "I" -n     -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "I" -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  "I" -n   -v   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "I" -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  "I" -n   -v -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "I" -n   -v -A 2  -x -b -i    test_files/empty_file.txt) <(grep  "I" -n   -v -A 2  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "I"   -x -b -i    test_files/rand_file.txt) <(grep  "I"  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "I" -c   -x -b -i    test_files/rand_file.txt) <(grep  "I" -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "I" -n     -x -b -i    test_files/rand_file.txt) <(grep  "I" -n     -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "I" -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  "I" -n   -v   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "I" -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  "I" -n   -v -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "I" -n   -v -A 3  -x -b -i    test_files/rand_file.txt) <(grep  "I" -n   -v -A 3  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "I"   -x -b -i    test_files/rand_file.txt) <(grep  "I"  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "I" -c   -x -b -i    test_files/rand_file.txt) <(grep  "I" -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "I" -n     -x -b -i    test_files/rand_file.txt) <(grep  "I" -n     -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "I" -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  "I" -n   -v   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "I" -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  "I" -n   -v -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "I" -n   -v -A 4  -x -b -i    test_files/rand_file.txt) <(grep  "I" -n   -v -A 4  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "I"   -x -b -i    test_files/rand_file.txt) <(grep  "I"  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "I" -c   -x -b -i    test_files/rand_file.txt) <(grep  "I" -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "I" -n     -x -b -i    test_files/rand_file.txt) <(grep  "I" -n     -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "I" -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  "I" -n   -v   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "I" -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  "I" -n   -v -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "I" -n   -v -A 5  -x -b -i    test_files/rand_file.txt) <(grep  "I" -n   -v -A 5  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "XG"   -x -b -i    test_files/empty_file.txt) <(grep  "XG"  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "XG" -c   -x -b -i    test_files/empty_file.txt) <(grep  "XG" -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "XG" -n     -x -b -i    test_files/empty_file.txt) <(grep  "XG" -n     -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "XG" -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  "XG" -n   -v   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "XG" -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  "XG" -n   -v -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "XG" -n   -v -A 0  -x -b -i    test_files/empty_file.txt) <(grep  "XG" -n   -v -A 0  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "XG"   -x -b -i    test_files/empty_file.txt) <(grep  "XG"  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "XG" -c   -x -b -i    test_files/empty_file.txt) <(grep  "XG" -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "XG" -n     -x -b -i    test_files/empty_file.txt) <(grep  "XG" -n     -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "XG" -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  "XG" -n   -v   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "XG" -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  "XG" -n   -v -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "XG" -n   -v -A 1  -x -b -i    test_files/empty_file.txt) <(grep  "XG" -n   -v -A 1  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "XG"   -x -b -i    test_files/empty_file.txt) <(grep  "XG"  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "XG" -c   -x -b -i    test_files/empty_file.txt) <(grep  "XG" -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "XG" -n     -x -b -i    test_files/empty_file.txt) <(grep  "XG" -n     -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "XG" -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  "XG" -n   -v   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "XG" -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  "XG" -n   -v -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "XG" -n   -v -A 2  -x -b -i    test_files/empty_file.txt) <(grep  "XG" -n   -v -A 2  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "XG"   -x -b -i    test_files/rand_file.txt) <(grep  "XG"  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "XG" -c   -x -b -i    test_files/rand_file.txt) <(grep  "XG" -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "XG" -n     -x -b -i    test_files/rand_file.txt) <(grep  "XG" -n     -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "XG" -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  "XG" -n   -v   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "XG" -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  "XG" -n   -v -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "XG" -n   -v -A 3  -x -b -i    test_files/rand_file.txt) <(grep  "XG" -n   -v -A 3  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "XG"   -x -b -i    test_files/rand_file.txt) <(grep  "XG"  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "XG" -c   -x -b -i    test_files/rand_file.txt) <(grep  "XG" -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "XG" -n     -x -b -i    test_files/rand_file.txt) <(grep  "XG" -n     -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "XG" -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  "XG" -n   -v   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "XG" -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  "XG" -n   -v -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "XG" -n   -v -A 4  -x -b -i    test_files/rand_file.txt) <(grep  "XG" -n   -v -A 4  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "XG"   -x -b -i    test_files/rand_file.txt) <(grep  "XG"  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "XG" -c   -x -b -i    test_files/rand_file.txt) <(grep  "XG" -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "XG" -n     -x -b -i    test_files/rand_file.txt) <(grep  "XG" -n     -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "XG" -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  "XG" -n   -v   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "XG" -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  "XG" -n   -v -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "XG" -n   -v -A 5  -x -b -i    test_files/rand_file.txt) <(grep  "XG" -n   -v -A 5  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "dE "   -x -b -i    test_files/empty_file.txt) <(grep  "dE "  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "dE " -c   -x -b -i    test_files/empty_file.txt) <(grep  "dE " -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "dE " -n     -x -b -i    test_files/empty_file.txt) <(grep  "dE " -n     -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "dE " -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  "dE " -n   -v   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "dE " -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  "dE " -n   -v -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "dE " -n   -v -A 0  -x -b -i    test_files/empty_file.txt) <(grep  "dE " -n   -v -A 0  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "dE "   -x -b -i    test_files/empty_file.txt) <(grep  "dE "  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "dE " -c   -x -b -i    test_files/empty_file.txt) <(grep  "dE " -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "dE " -n     -x -b -i    test_files/empty_file.txt) <(grep  "dE " -n     -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "dE " -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  "dE " -n   -v   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "dE " -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  "dE " -n   -v -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "dE " -n   -v -A 1  -x -b -i    test_files/empty_file.txt) <(grep  "dE " -n   -v -A 1  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "dE "   -x -b -i    test_files/empty_file.txt) <(grep  "dE "  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "dE " -c   -x -b -i    test_files/empty_file.txt) <(grep  "dE " -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "dE " -n     -x -b -i    test_files/empty_file.txt) <(grep  "dE " -n     -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "dE " -n   -v   -x -b -i    test_files/empty_file.txt) <(grep  "dE " -n   -v   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "dE " -n   -v -c   -x -b -i    test_files/empty_file.txt) <(grep  "dE " -n   -v -c   -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "dE " -n   -v -A 2  -x -b -i    test_files/empty_file.txt) <(grep  "dE " -n   -v -A 2  -x -b -i    test_files/empty_file.txt)
-
-diff <(./my_grep "dE "   -x -b -i    test_files/rand_file.txt) <(grep  "dE "  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "dE " -c   -x -b -i    test_files/rand_file.txt) <(grep  "dE " -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "dE " -n     -x -b -i    test_files/rand_file.txt) <(grep  "dE " -n     -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "dE " -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  "dE " -n   -v   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "dE " -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  "dE " -n   -v -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "dE " -n   -v -A 3  -x -b -i    test_files/rand_file.txt) <(grep  "dE " -n   -v -A 3  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "dE "   -x -b -i    test_files/rand_file.txt) <(grep  "dE "  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "dE " -c   -x -b -i    test_files/rand_file.txt) <(grep  "dE " -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "dE " -n     -x -b -i    test_files/rand_file.txt) <(grep  "dE " -n     -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "dE " -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  "dE " -n   -v   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "dE " -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  "dE " -n   -v -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "dE " -n   -v -A 4  -x -b -i    test_files/rand_file.txt) <(grep  "dE " -n   -v -A 4  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "dE "   -x -b -i    test_files/rand_file.txt) <(grep  "dE "  -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "dE " -c   -x -b -i    test_files/rand_file.txt) <(grep  "dE " -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "dE " -n     -x -b -i    test_files/rand_file.txt) <(grep  "dE " -n     -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "dE " -n   -v   -x -b -i    test_files/rand_file.txt) <(grep  "dE " -n   -v   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "dE " -n   -v -c   -x -b -i    test_files/rand_file.txt) <(grep  "dE " -n   -v -c   -x -b -i    test_files/rand_file.txt)
-
-diff <(./my_grep "dE " -n   -v -A 5  -x -b -i    test_files/rand_file.txt) <(grep  "dE " -n   -v -A 5  -x -b -i    test_files/rand_file.txt)
 

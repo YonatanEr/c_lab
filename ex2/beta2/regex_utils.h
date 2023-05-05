@@ -8,13 +8,13 @@ union RegexLetter {
    char c;
    bool dot;
    char interval[2];
-   char* or_str;
-   char which_letter;
+   char* or_str[2];
 };
 
 typedef struct RegexWord {
    int len;
    union RegexLetter* reg_arr;
+   int* type_arr;
 } Regex;
 
 
@@ -22,10 +22,9 @@ Regex* get_regex(char* pattern);
 
 void free_regex(Regex* regex);
 
+bool is_matching(Flags* flags, Regex* regex, char* line); 
 
-bool is_matching(Flags* flags, char* regex, char* line); 
-// TO BE REPLACED BY 
-//bool is_matching(Regex reg, char* line);
+void print_regex(Regex* regex);
 
 
 #endif
