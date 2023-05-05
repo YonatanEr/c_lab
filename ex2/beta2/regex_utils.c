@@ -43,35 +43,35 @@ Regex* get_regex(char* pattern) {
     int pattern_len=strlen(pattern), regex_ind=0, j=0, k=0;
     for (int i=0; i<pattern_len; i++) {
         switch (pattern[i]) {
-            case BACKSLASH:
-                i++;
-                regex->reg_arr[regex_ind].c = pattern[i];
-                regex->type_arr[regex_ind] = c_type;
-                break;
-            case LEFT_SQUARE_BRACKET:
-                i++;
-                regex->reg_arr[regex_ind].interval[0] = pattern[i];
-                i = i+2;
-                regex->reg_arr[regex_ind].interval[1] = pattern[i];
-                i++;
-                regex->type_arr[regex_ind] = interval_type;
-                break;
-            case LEFT_ROUND_BRACKET:
-                j = get_next_char_occurence_index(pattern, OR, i);
-                k = get_next_char_occurence_index(pattern, RIGHT_ROUND_BRACKET, j);
-                regex->reg_arr[regex_ind].or_str[0] = get_substring(pattern, i+1, j);
-                regex->reg_arr[regex_ind].or_str[1] = get_substring(pattern, j+1, k);
-                regex->type_arr[regex_ind] = or_str_type;
-                i = k;
-                break;        
-            case DOT:
-                regex->reg_arr[regex_ind].dot = true;
-                regex->type_arr[regex_ind] = dot_type;
-                break;
-            default:
-                regex->reg_arr[regex_ind].c = pattern[i];
-                regex->type_arr[regex_ind] = c_type;                                                                        
-                break;
+        case BACKSLASH:
+            i++;
+            regex->reg_arr[regex_ind].c = pattern[i];
+            regex->type_arr[regex_ind] = c_type;
+            break;
+        case LEFT_SQUARE_BRACKET:
+            i++;
+            regex->reg_arr[regex_ind].interval[0] = pattern[i];
+            i = i+2;
+            regex->reg_arr[regex_ind].interval[1] = pattern[i];
+            i++;
+            regex->type_arr[regex_ind] = interval_type;
+            break;
+        case LEFT_ROUND_BRACKET:
+            j = get_next_char_occurence_index(pattern, OR, i);
+            k = get_next_char_occurence_index(pattern, RIGHT_ROUND_BRACKET, j);
+            regex->reg_arr[regex_ind].or_str[0] = get_substring(pattern, i+1, j);
+            regex->reg_arr[regex_ind].or_str[1] = get_substring(pattern, j+1, k);
+            regex->type_arr[regex_ind] = or_str_type;
+            i = k;
+            break;        
+        case DOT:
+            regex->reg_arr[regex_ind].dot = true;
+            regex->type_arr[regex_ind] = dot_type;
+            break;
+        default:
+            regex->reg_arr[regex_ind].c = pattern[i];
+            regex->type_arr[regex_ind] = c_type;                                                                        
+            break;
         }
         regex_ind++;
     }
