@@ -123,8 +123,12 @@ void handle_long_flag(Flags* flags, char *argv[], int i, int long_flag) {
 }
 
 void handle_bool_flag(Flags* flags, char *argv[], int i, int bool_flag) {
+    char* regular_pattern = NULL;
     if (bool_flag == E_flag) {
-        set_str_flags(flags, pattern_flag, get_regular_pattern(argv[i+1]));
+        regular_pattern = get_regular_pattern(argv[i+1]);
+        set_str_flags(flags, pattern_flag, regular_pattern);
+        free(regular_pattern);
+        regular_pattern = NULL;
         argv[i+1] = NULL;
     }
     set_bool_flags(flags, bool_flag, true);

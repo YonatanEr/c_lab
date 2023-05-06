@@ -2,7 +2,7 @@
 #define GREP_FLAGS_H
 
 #define long_flags_amount 1
-#define bool_flags_amount 6
+#define bool_flags_amount 7
 #define string_flags_amount 2
 
 #include<stdbool.h>

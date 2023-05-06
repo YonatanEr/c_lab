@@ -88,6 +88,8 @@ void free_regex(Regex* regex) {
             regex->reg_arr[i].or_str[1] = NULL;
         }
     }
+    free(regex->reg_arr);
+    free(regex->type_arr);
     free(regex);
     regex = NULL;
 }
@@ -225,7 +227,7 @@ bool is_matching_rec(Flags* flags, Regex* regex, char* line, int regex_ind, int 
     }
     if (regex->len == regex_ind) {
         if (get_bool_flags(flags, x_flag)) {
-            return (line_ind == len);
+            return line[line_ind]=='\0';
         }
         return true;
     }
@@ -249,13 +251,11 @@ bool is_matching_rec(Flags* flags, Regex* regex, char* line, int regex_ind, int 
 
 bool is_matching_env(Flags* flags, Regex* regex, char* line) {
     if (regex->len==0) {
-        return line[0]<32;
+        return line[0]=='\0';
     }
     int i=0, len=strlen(line);
-    for (i=0; i<len; i++) {
-        if (line[i]<32){
-            line[i] = '\0';
-        }
+    if (len>0 && line[len-1]==10) {
+        line[len-1] = '\0';
     }
     if (get_bool_flags(flags, x_flag)) {
         return is_matching_rec(flags, regex, line, 0, 0);
@@ -275,7 +275,7 @@ bool is_matching(Flags* flags, Regex* regex, char* line) {
     bool res = false;
     char* line_copy = (char*) calloc (strlen(line)+1, sizeof(char));
     assert(line_copy);
-    strcpy(line_copy, line);
+    strcpy(line_copy, line);           
     if (get_bool_flags(flags, v_flag)) {
         res = !is_matching_env(flags, regex, line_copy);
     }

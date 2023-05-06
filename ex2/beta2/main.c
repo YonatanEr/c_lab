@@ -51,7 +51,7 @@ void execute_grep(Flags* flags, Regex* regex, Reader* reader)
     char* line = NULL;
     long match_count = 0;
     long last_match = -1;
-    bool dash;
+    bool dash = false;
     while (read_next_line(reader, &line) != -1) {
         if (is_matching(flags, regex, line)) {
             handle_matched_line(flags, reader, line, &match_count, &last_match, &dash);
