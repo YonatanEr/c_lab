@@ -3,7 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-Reader *init_reader() {
+Reader *init_reader()
+{
   Reader *reader = (Reader *)calloc(1, sizeof(Reader));
   assert(reader);
   reader->file_pointer = NULL;
@@ -13,7 +14,8 @@ Reader *init_reader() {
   return reader;
 }
 
-Reader *get_reader(char *filename) {
+Reader *get_reader(char *filename)
+{
   Reader *reader = init_reader();
   if (filename != NULL) {
     reader->file_pointer = fopen(filename, "r");
@@ -23,7 +25,8 @@ Reader *get_reader(char *filename) {
   return reader;
 }
 
-void free_reader(Reader *reader) {
+void free_reader(Reader *reader)
+{
   if (reader->is_file) {
     fclose(reader->file_pointer);
   }
@@ -31,7 +34,8 @@ void free_reader(Reader *reader) {
   reader = NULL;
 }
 
-int read_next_line(Reader *fr, char **line_ptr) {
+int read_next_line(Reader *fr, char **line_ptr)
+{
   size_t len = 0;
   if (fr->is_file) {
     if (getline(line_ptr, &len, fr->file_pointer) == -1) {

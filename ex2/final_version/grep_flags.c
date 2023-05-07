@@ -9,7 +9,8 @@ void set_bool_flags(Flags *flags, int ind, bool val);
 void set_str_flags(Flags *flags, int ind, char *val);
 char *get_regular_pattern(char *arg);
 
-Flags *init_flags() {
+Flags *init_flags()
+{
   int i;
   Flags *flags = (Flags *)malloc(1 * (sizeof(Flags)));
   assert(flags);
@@ -25,7 +26,8 @@ Flags *init_flags() {
   return flags;
 }
 
-void free_flags(Flags *flags) {
+void free_flags(Flags *flags)
+{
   for (int i = 0; i < string_flags_amount; i++) {
     free(flags->string_flags[i]);
     set_str_flags(flags, i, NULL);
@@ -34,15 +36,12 @@ void free_flags(Flags *flags) {
   flags = NULL;
 }
 
-void set_long_flags(Flags *flags, int ind, int val) {
-  flags->long_flags[ind] = val;
-}
+void set_long_flags(Flags *flags, int ind, int val) { flags->long_flags[ind] = val; }
 
-void set_bool_flags(Flags *flags, int ind, bool val) {
-  flags->boolean_flags[ind] = val;
-}
+void set_bool_flags(Flags *flags, int ind, bool val) { flags->boolean_flags[ind] = val; }
 
-void set_str_flags(Flags *flags, int ind, char *val) {
+void set_str_flags(Flags *flags, int ind, char *val)
+{
   int len = 0, i = 0;
   if (val == NULL) {
     flags->string_flags[ind] = NULL;
@@ -62,7 +61,8 @@ bool get_bool_flags(Flags *flags, int ind) { return flags->boolean_flags[ind]; }
 
 char *get_str_flags(Flags *flags, int ind) { return flags->string_flags[ind]; }
 
-bool is_flag(char *arg) {
+bool is_flag(char *arg)
+{
   if (arg == NULL) {
     return false;
   }
@@ -75,49 +75,53 @@ bool is_flag(char *arg) {
   return true;
 }
 
-int get_long_flag_index(char *arg) {
+int get_long_flag_index(char *arg)
+{
   if (!is_flag(arg)) {
     return -1;
   }
   switch (arg[1]) {
-  case 'A':
-    return A_flag;
-  default:
-    return -1;
+    case 'A':
+      return A_flag;
+    default:
+      return -1;
   }
 }
 
-int get_bool_flag_index(char *arg) {
+int get_bool_flag_index(char *arg)
+{
   if (!is_flag(arg)) {
     return -1;
   }
   switch (arg[1]) {
-  case 'E':
-    return E_flag;
-  case 'b':
-    return b_flag;
-  case 'c':
-    return c_flag;
-  case 'i':
-    return i_flag;
-  case 'n':
-    return n_flag;
-  case 'v':
-    return v_flag;
-  case 'x':
-    return x_flag;
-  default:
-    return -1;
+    case 'E':
+      return E_flag;
+    case 'b':
+      return b_flag;
+    case 'c':
+      return c_flag;
+    case 'i':
+      return i_flag;
+    case 'n':
+      return n_flag;
+    case 'v':
+      return v_flag;
+    case 'x':
+      return x_flag;
+    default:
+      return -1;
   }
 }
 
-void handle_long_flag(Flags *flags, char *argv[], int i, int long_flag) {
+void handle_long_flag(Flags *flags, char *argv[], int i, int long_flag)
+{
   set_long_flags(flags, long_flag, atoi(argv[i + 1]));
   argv[i] = NULL;
   argv[i + 1] = NULL;
 }
 
-void handle_bool_flag(Flags *flags, char *argv[], int i, int bool_flag) {
+void handle_bool_flag(Flags *flags, char *argv[], int i, int bool_flag)
+{
   char *regular_pattern = NULL;
   if (bool_flag == E_flag) {
     regular_pattern = get_regular_pattern(argv[i + 1]);
@@ -130,7 +134,8 @@ void handle_bool_flag(Flags *flags, char *argv[], int i, int bool_flag) {
   argv[i] = NULL;
 }
 
-int get_first_not_null_index(int argc, char *argv[]) {
+int get_first_not_null_index(int argc, char *argv[])
+{
   for (int i = 1; i < argc; i++) {
     if (argv[i] != NULL) {
       return i;
@@ -139,7 +144,8 @@ int get_first_not_null_index(int argc, char *argv[]) {
   return -1;
 }
 
-char *get_regular_pattern(char *arg) {
+char *get_regular_pattern(char *arg)
+{
   int len = strlen(arg);
   char *pattern = (char *)calloc(len + 1, sizeof(char));
   assert(pattern);
@@ -149,7 +155,8 @@ char *get_regular_pattern(char *arg) {
   return pattern;
 }
 
-void update_flags(Flags *flags, int argc, char *argv[]) {
+void update_flags(Flags *flags, int argc, char *argv[])
+{
   int int_flag, bool_flag, i, j, k;
   for (i = 0; i < argc; i++) {
     int_flag = get_long_flag_index(argv[i]);
@@ -177,7 +184,8 @@ void update_flags(Flags *flags, int argc, char *argv[]) {
   }
 }
 
-Flags *get_flags(int argc, char *argv[]) {
+Flags *get_flags(int argc, char *argv[])
+{
   Flags *flags = init_flags();
   update_flags(flags, argc, argv);
   return flags;

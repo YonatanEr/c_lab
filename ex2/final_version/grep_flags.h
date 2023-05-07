@@ -8,15 +8,7 @@
 #include <stdbool.h>
 
 enum long_flags_names { A_flag };
-enum boolean_flags_names {
-  E_flag,
-  b_flag,
-  c_flag,
-  i_flag,
-  n_flag,
-  v_flag,
-  x_flag
-};
+enum boolean_flags_names { E_flag, b_flag, c_flag, i_flag, n_flag, v_flag, x_flag };
 enum string_flags_names { pattern_flag, file_flag };
 
 typedef struct GrepFlags {

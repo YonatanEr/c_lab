@@ -1,5 +1,14 @@
 CC = gcc -w
 
+.SILENT: grep_flags
+.SILENT: grep_flags.o
+.SILENT: reader_utils.o
+.SILENT: regex_utils.o
+.SILENT: main.o
+.SILENT: test
+.SILENT: all
+.SILENT: clean
+
 my_grep: main.o
 
 grep_flags.o: grep_flags.c grep_flags.h
@@ -17,8 +26,7 @@ main.o: main.c grep_flags.o grep_flags.o reader_utils.o regex_utils.o
 test:
 	/bin/bash ../../../../nimrodav/grep_tests/run_all.sh
 
-all:
-	$(CC) *.c -o my_grep	
+all: my_grep	
 
 clean:
 	rm -f my_grep grep_flags.o reader_utils.o regex_utils.o main.o 

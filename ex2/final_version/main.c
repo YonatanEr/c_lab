@@ -7,13 +7,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define LF 10    //   'LF'
-#define DASH 45  //   "-"
-#define COLON 58 //   ':'
+#define LF 10     //   'LF'
+#define DASH 45   //   "-"
+#define COLON 58  //   ':'
 
 bool is_matching(Flags *flags, Regex *regex, char *line);
 
-void print_format(Flags *flags, Reader *reader, char *line, char delimiter) {
+void print_format(Flags *flags, Reader *reader, char *line, char delimiter)
+{
   long cur_lines_counter = reader->lines_counter;
   long cur_bytes_counter = reader->bytes_counter - strlen(line);
   if (get_bool_flags(flags, n_flag)) {
@@ -28,8 +29,8 @@ void print_format(Flags *flags, Reader *reader, char *line, char delimiter) {
   }
 }
 
-void handle_matched_line(Flags *flags, Reader *reader, char *line,
-                         long *match_count, long *last_match, bool *dash) {
+void matched_line(Flags *flags, Reader *reader, char *line, long *match_count, long *last_match, bool *dash)
+{
   *match_count = (*match_count) + 1;
   *last_match = reader->lines_counter;
   if (get_bool_flags(flags, c_flag)) {
@@ -42,8 +43,8 @@ void handle_matched_line(Flags *flags, Reader *reader, char *line,
   print_format(flags, reader, line, COLON);
 }
 
-void handle_unmatched_line(Flags *flags, Reader *reader, char *line,
-                           long last_matched_line, bool *dash) {
+void unmatched_line(Flags *flags, Reader *reader, char *line, long last_matched_line, bool *dash)
+{
   long A = get_long_flags(flags, A_flag);
   if (get_bool_flags(flags, c_flag)) {
     return;
@@ -63,17 +64,17 @@ void handle_unmatched_line(Flags *flags, Reader *reader, char *line,
   print_format(flags, reader, line, DASH);
 }
 
-void execute_grep(Flags *flags, Regex *regex, Reader *reader) {
+void execute_grep(Flags *flags, Regex *regex, Reader *reader)
+{
   char *line = NULL;
   long match_count = 0;
   long last_match = -1;
   bool dash = false;
   while (read_next_line(reader, &line) != -1) {
     if (is_matching(flags, regex, line)) {
-      handle_matched_line(flags, reader, line, &match_count, &last_match,
-                          &dash);
+      matched_line(flags, reader, line, &match_count, &last_match, &dash);
     } else {
-      handle_unmatched_line(flags, reader, line, last_match, &dash);
+      unmatched_line(flags, reader, line, last_match, &dash);
     }
     free(line);
     line = NULL;
@@ -87,30 +88,33 @@ void execute_grep(Flags *flags, Regex *regex, Reader *reader) {
   }
 }
 
-char to_lower_case(char c) {
+char to_lower_case(char c)
+{
   if ('A' <= c && c <= 'Z') {
     return c - 'A' + 'a';
   }
   return c;
 }
 
-bool case_sensative_compare(Flags *flags, char x, char y) {
+bool case_sensative_compare(Flags *flags, char x, char y)
+{
   if (get_bool_flags(flags, i_flag)) {
     return (to_lower_case(x) == to_lower_case(y));
   }
   return (x == y);
 }
 
-bool is_in_interval(Flags *flags, union RegexLetter reg, char x) {
+bool is_in_interval(Flags *flags, union RegexLetter reg, char x)
+{
   char left = reg.interval[0], right = reg.interval[1];
   if (get_bool_flags(flags, i_flag)) {
-    return ((to_lower_case(left) <= to_lower_case(x)) &&
-            (to_lower_case(x) <= to_lower_case(right)));
+    return ((to_lower_case(left) <= to_lower_case(x)) && (to_lower_case(x) <= to_lower_case(right)));
   }
   return (left <= x && x <= right);
 }
 
-bool is_matching_str(Flags *flags, char *str, char *line, int line_ind) {
+bool is_matching_str(Flags *flags, char *str, char *line, int line_ind)
+{
   int str_len = strlen(str);
   for (int i = 0; i < str_len; i++) {
     if (!case_sensative_compare(flags, str[i], line[line_ind + i])) {
@@ -120,24 +124,22 @@ bool is_matching_str(Flags *flags, char *str, char *line, int line_ind) {
   return true;
 }
 
-bool is_matching_reg_letter(Flags *flags, Regex *regex, char *line,
-                            int regex_ind, int line_ind) {
+bool is_matching_reg_letter(Flags *flags, Regex *regex, char *line, int regex_ind, int line_ind)
+{
   switch (regex->type_arr[regex_ind]) {
-  case c_type:
-    return case_sensative_compare(flags, regex->reg_arr[regex_ind].c,
-                                  line[line_ind]);
-  case dot_type:
-    return true;
-  case interval_type:
-    return is_in_interval(flags, regex->reg_arr[regex_ind], line[line_ind]);
-  default:
-    assert(NULL);
+    case c_type:
+      return case_sensative_compare(flags, regex->reg_arr[regex_ind].c, line[line_ind]);
+    case dot_type:
+      return true;
+    case interval_type:
+      return is_in_interval(flags, regex->reg_arr[regex_ind], line[line_ind]);
+    default:
+      assert(NULL);
   }
-  assert(NULL);
 }
 
-bool is_matching_rec(Flags *flags, Regex *regex, char *line, int regex_ind,
-                     int line_ind) {
+bool is_matching_rec(Flags *flags, Regex *regex, char *line, int regex_ind, int line_ind)
+{
   int line_ind0 = 0, line_ind1 = 0, len = strlen(line);
   bool op0 = false, op1 = false;
   if (regex->len < regex_ind || len < line_ind) {
@@ -150,13 +152,11 @@ bool is_matching_rec(Flags *flags, Regex *regex, char *line, int regex_ind,
     return true;
   }
   if (regex->type_arr[regex_ind] == or_str_type) {
-    if (is_matching_str(flags, regex->reg_arr[regex_ind].or_str[0], line,
-                        line_ind)) {
+    if (is_matching_str(flags, regex->reg_arr[regex_ind].or_str[0], line, line_ind)) {
       line_ind0 = line_ind + strlen(regex->reg_arr[regex_ind].or_str[0]);
       op0 = is_matching_rec(flags, regex, line, regex_ind + 1, line_ind0);
     }
-    if (is_matching_str(flags, regex->reg_arr[regex_ind].or_str[1], line,
-                        line_ind)) {
+    if (is_matching_str(flags, regex->reg_arr[regex_ind].or_str[1], line, line_ind)) {
       line_ind1 = line_ind + strlen(regex->reg_arr[regex_ind].or_str[1]);
       op1 = is_matching_rec(flags, regex, line, regex_ind + 1, line_ind1);
     }
@@ -168,7 +168,8 @@ bool is_matching_rec(Flags *flags, Regex *regex, char *line, int regex_ind,
   return is_matching_rec(flags, regex, line, regex_ind + 1, line_ind + 1);
 }
 
-bool is_matching_env(Flags *flags, Regex *regex, char *line) {
+bool is_matching_env(Flags *flags, Regex *regex, char *line)
+{
   if (regex->len == 0) {
     return line[0] == '\0';
   }
@@ -188,7 +189,8 @@ bool is_matching_env(Flags *flags, Regex *regex, char *line) {
   }
 }
 
-bool is_matching(Flags *flags, Regex *regex, char *line) {
+bool is_matching(Flags *flags, Regex *regex, char *line)
+{
   bool res = false;
   int len = strlen(line), i = 0;
   char *line_copy = (char *)calloc(len + 1, sizeof(char));
@@ -206,7 +208,8 @@ bool is_matching(Flags *flags, Regex *regex, char *line) {
   return res;
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
   Flags *flags = get_flags(argc, argv);
   Regex *regex = get_regex(get_str_flags(flags, pattern_flag));
   Reader *reader = get_reader(get_str_flags(flags, file_flag));
