@@ -5,6 +5,9 @@
 #include <assert.h>
 #include <string.h>
 
+
+#define LF 10                          //   'LF'
+#define SPACE 32                       //   ' '
 #define LEFT_ROUND_BRACKET 40          //   '('
 #define RIGHT_ROUND_BRACKET 41         //   ')'
 #define DOT 46                         //   '.'
@@ -14,6 +17,7 @@
 #define LEFT_CURLY_BRACKET 123         //   '{'
 #define OR 124                         //   '|'
 #define RIGHT_CURLY_BRACKET 125        //   '}'
+
 
 enum RegexLetterType {c_type, dot_type, interval_type, or_str_type};
 
@@ -120,7 +124,7 @@ int get_regex_len(char* pattern) {
                 i = get_next_char_occurence_index(pattern, RIGHT_ROUND_BRACKET, i);
                 break;
             default:
-                if(pattern[i]<32) {
+                if(pattern[i]<SPACE) {
                     return len;
                 }
                 break;
@@ -147,31 +151,6 @@ char to_lower_case(char c) {
         return c - 'A' + 'a';
     }
     return c;
-}
-
-
-void print_regex(Regex* regex) {
-    printf("regex->len = %d\n", regex->len);
-    for (int i=0; i<regex->len; i++) {
-        switch (regex->type_arr[i])
-        {
-        case c_type:
-            printf("%c\n", regex->reg_arr[i].c);
-            break;
-        case dot_type:
-            printf(".\n");
-            break;
-        case interval_type:
-            printf("[%c-%c]\n", regex->reg_arr[i].interval[0], regex->reg_arr[i].interval[1]);
-            break;
-        case or_str_type:
-            printf("%s|%s\n", regex->reg_arr[i].or_str[0], regex->reg_arr[i].or_str[1]);
-            break;        
-        default:
-            printf("None\n");
-            break;
-        }
-    }
 }
 
 
@@ -254,7 +233,7 @@ bool is_matching_env(Flags* flags, Regex* regex, char* line) {
         return line[0]=='\0';
     }
     int i=0, len=strlen(line);
-    if (len>0 && line[len-1]==10) {
+    if (len>0 && line[len-1]==LF) {
         line[len-1] = '\0';
     }
     if (get_bool_flags(flags, x_flag)) {

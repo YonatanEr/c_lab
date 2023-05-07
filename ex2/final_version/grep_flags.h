@@ -30,7 +30,6 @@ char* get_str_flags(Flags* flags, int ind);
 
 Flags* get_flags(int argc, char *argv[]);
 
-void print_flags(Flags* flags); 
 
 
 #endif

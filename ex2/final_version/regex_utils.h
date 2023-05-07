@@ -24,7 +24,5 @@ void free_regex(Regex* regex);
 
 bool is_matching(Flags* flags, Regex* regex, char* line); 
 
-void print_regex(Regex* regex);
-
 
 #endif

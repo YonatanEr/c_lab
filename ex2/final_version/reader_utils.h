@@ -1,7 +1,7 @@
 #ifndef READER_UTILS_H
 #define READER_UTILS_H
 
-#include<stdlib.h>
+
 #include<stdio.h>
 #include<stdbool.h>
 

@@ -1,0 +1,8 @@
+
+regex_utils contains: transforming a *String* into my *Regex* structure, *freeing*, checking whether the *Regex* and a *String* are *matching* and printing capability to a convenient format.
+
+reader_utils contains: a *Reader* structure for some file if filename is not Null, o.w stding, the structue keeps count on the *bytes* and *lines* read, *freeing*, *reading next line* till EOF.
+
+print_utils contains formats for printing of *matched* and *unmatched*, convinient if format will be changed.
+
+grep_flags contains a structure which holds the inputs of the program, the structure supports the inputs from the requirements file, *freeing*, *flags reading*, parsing the flags from command line, printing the flags in a convinient format.

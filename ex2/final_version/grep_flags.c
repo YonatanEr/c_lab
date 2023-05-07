@@ -190,23 +190,5 @@ Flags* get_flags(int argc, char *argv[]) {
     return flags;
 }
 
-// DEBUG PURPOSESS TO BE DELETED
-
-void print_flags(Flags* flags) {
-    printf("\n");
-    printf("A_flag = %ld\n",get_long_flags(flags, A_flag));
-    printf("\n");
-    printf("E_flag = %d\n",get_bool_flags(flags, E_flag));
-    printf("b_flag = %d\n",get_bool_flags(flags, b_flag));
-    printf("c_flag = %d\n",get_bool_flags(flags, c_flag));
-    printf("i_flag = %d\n",get_bool_flags(flags, i_flag));
-    printf("n_flag = %d\n",get_bool_flags(flags, n_flag));
-    printf("v_flag = %d\n",get_bool_flags(flags, v_flag));
-    printf("x_flag = %d\n",get_bool_flags(flags, x_flag));
-    printf("\n");
-    printf("pattern_flag = %s\n",get_str_flags(flags, pattern_flag));
-    printf("file_flag = %s\n",get_str_flags(flags, file_flag));
-    printf("\n");
-}
 
 
