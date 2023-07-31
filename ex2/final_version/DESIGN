@@ -1,5 +1,0 @@
-regex_utils contains: *RegexLetter* structure which holds the building blocks of *RegexWord* structure, getting a pointer to the sturcture and freeing.
-
-reader_utils contains: *Reader* structure for some file if filename is not NULL, o.w stdin, the structue keeps count on the bytes and lines read, getting a pointer to the sturcture and freeing.
-
-grep_flags contains: *GrepFlags* a structure which holds the inputs of the program, getting a pointer to the sturcture and freeing.

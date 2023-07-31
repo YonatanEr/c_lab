@@ -1,1 +1,0 @@
-~nimrodav/lint/lint.sh
